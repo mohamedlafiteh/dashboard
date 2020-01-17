@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import FirstSlideTotaliser from "./slides/FirstSlideTotaliser";
-import SecondSlideInformation from "./slides/SecondSlideInformation";
-import ThirdSlidePlaceholder from "./slides/ThirdSlidePlaceholder";
+import FirstSlideTotaliser from "./slides/firstSlideTotaliser/FirstSlideTotaliser";
+import SecondSlideInformation from "./slides/secondSlideInformation/SecondSlideInformation";
+import ThirdSlidePlaceholder from "./slides/thirdSlidePlaceholder/ThirdSlidePlaceholder";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
