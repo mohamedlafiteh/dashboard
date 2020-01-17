@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import imgBackground from "./water.jpg";
+import "./ThirdSlidePlaceholder.css";
 
 export class ThirdSlidePlaceholder extends Component {
   render() {
     return (
-      <div>
-        <h1>ThirdSlidePlaceholder</h1>
+      <div className='polaroid'>
+        <img src={imgBackground} alt='' style={{ width: "100%" }} />
+        <div className='container'>
+          <p>Third slide</p>
+        </div>
       </div>
     );
   }
