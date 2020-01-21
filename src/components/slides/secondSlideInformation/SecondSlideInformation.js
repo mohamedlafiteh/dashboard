@@ -48,7 +48,7 @@ export class SecondSlideInformation extends Component {
     const { pic, text } = this.state;
     return (
       <div className='polaroid'>
-        <img src={pic} alt='' style={{ width: "105%" }} />
+        <img src={pic} alt='' style={{ width: "70%" }} />
         <div className='container'>
           <p>{text}</p>
         </div>
