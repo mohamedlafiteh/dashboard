@@ -9,15 +9,6 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Home />
-        <div>
-          <Button
-            variant='contained'
-            color='primary'
-            style={{ marginTop: "50px" }}
-          >
-            Click
-          </Button>
-        </div>
       </div>
     );
   }

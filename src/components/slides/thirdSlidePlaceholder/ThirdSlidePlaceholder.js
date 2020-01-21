@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import imgBackground from "./water.jpg";
+import imgBackground from "./water3.jpg";
 import "./ThirdSlidePlaceholder.css";
 
 export class ThirdSlidePlaceholder extends Component {
