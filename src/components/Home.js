@@ -11,7 +11,7 @@ export class Home extends Component {
     var settings = {
       infinite: true,
       speed: 500,
-      autoplay: true,
+      //autoplay: true,
       slidesToShow: 1,
       slidesToScroll: 1
     };

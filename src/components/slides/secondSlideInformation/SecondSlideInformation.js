@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import "./SecondSlideInformation.css";
-import imgBackground from "./water2.jpg";
+import imgBackground1 from "./water2.jpg";
+import imgBackground2 from "./water22.jpg";
+import imgBackground3 from "./water222.jpg";
 
 const imageChange = [
   {
-    imageUrl:
-      "https://images.pexels.com/photos/3380967/pexels-photo-3380967.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    imageUrl: imgBackground1,
     text: "Hello world."
   },
   {
-    imageUrl:
-      "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    imageUrl: imgBackground2,
     text: "WaterAid is great ."
   },
   {
-    imageUrl:
-      "https://images.pexels.com/photos/3464632/pexels-photo-3464632.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    imageUrl: imgBackground3,
     text: " the Serengeti is beautiful."
   }
 ];
