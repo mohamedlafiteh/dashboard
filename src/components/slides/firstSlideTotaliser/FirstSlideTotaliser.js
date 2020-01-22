@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import "./FirstSlideTotaliser.css";
-import imgBackground from "./water.jpg";
+import LotRetrievalComponent from "../../../lotProcessor/LotRetrievalComponent.js"
 
-export class FirstSlideTotaliser extends Component {
+export class FirstSlideTotaliser extends LotRetrievalComponent {
   render() {
     return (
       <div className='polaroid'>
-        <img src={imgBackground} alt='' style={{ width: "100%" }} />
         <div className='container'>
-          <p>First slide</p>
+          <h1>Lots:</h1>
+          <ul>{this.state.lots.map(lot => <li>{lot.data().lotName}</li>)}</ul>
         </div>
       </div>
     );
