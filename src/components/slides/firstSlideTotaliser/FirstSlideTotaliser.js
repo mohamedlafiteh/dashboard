@@ -30,7 +30,7 @@ export class FirstSlideTotaliser extends LotRetrievalComponent {
     return (
       <div className="polaroid">
         <div className="container">
-          <h1>Lots:</h1>
+          <h1>5 Latest Bids:</h1>
           <ul>
             {fiveLatest.map((lot, index) => {
               getImageForLot(lot.id, lot.data().image)
