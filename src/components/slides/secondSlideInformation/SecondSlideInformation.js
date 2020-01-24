@@ -25,7 +25,7 @@ export default function SecondSlideInformation(props) {
         <CardMedia
           className={classes.media}
           image={props.picture}
-          title='Contemplative Reptile'
+          title='Where WaterAid is helping'
         />
         <CardContent>
           <Typography variant='body2' color='textSecondary' component='p'>
