@@ -1,7 +1,10 @@
 import React from "react";
 import "./FirstSlideTotaliser.css";
 import LotRetrievalComponent from "../../../lotProcessor/LotRetrievalComponent.js";
+import Bid from "./Bid";
+
 import { getImageForLot } from "../../../dao/LotDao";
+
 const getDateFromSeconds = date => {
   if (date !== null) {
     return new Date(date.seconds * 1000);
@@ -11,6 +14,14 @@ const getDateFromSeconds = date => {
 };
 
 export class FirstSlideTotaliser extends LotRetrievalComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ...this.state,
+      imageDictionary: {}
+    };
+  }
+
   getFiveLatest() {
     return this.state.lots
       .filter(function(el) {
@@ -26,34 +37,28 @@ export class FirstSlideTotaliser extends LotRetrievalComponent {
 
   render() {
     const fiveLatest = this.getFiveLatest();
-    console.log("fiveLatest", fiveLatest);
     return (
       <div className="polaroid">
         <div className="container">
           <h1>5 Latest Bids:</h1>
-          <ul>
+          <div>
             {fiveLatest.map((lot, index) => {
-              getImageForLot(lot.id, lot.data().image)
-                .getDownloadURL()
-                .then(url => {
-                  console.log(
-                    "lot.data().image",
-                    lot.data().image,
-                    "id",
-                    lot.id,
-                    "url",
-                    url
-                  );
-                });
-              return (
-                <li key={index}>
-                  Auction: {lot.data().lotName}, £
-                  {lot.data().currentBid.toFixed(2)}, Table:{" "}
-                  {lot.data().bidderTableNo}
-                </li>
-              );
+              let imageUrl = this.state.imageDictionary[lot.id];
+              if (!this.state.imageDictionary[lot.id]) {
+                getImageForLot(lot.id, lot.data().image)
+                  .getDownloadURL()
+                  .then(url => {
+                    this.setState(state => ({
+                      imageDictionary: {
+                        ...state.imageDictionary,
+                        [lot.id]: url
+                      }
+                    }));
+                  });
+              }
+              return <Bid lot={lot} key={index} url={imageUrl} />;
             })}
-          </ul>
+          </div>
         </div>
       </div>
     );

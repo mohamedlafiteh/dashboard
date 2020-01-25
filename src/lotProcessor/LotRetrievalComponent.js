@@ -16,9 +16,7 @@ class LotRetrievalComponent extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-    if (this._isMounted) {
-      this.getAllLots();
-    }
+    this.getAllLots();
   }
 
   componentWillUnmount() {

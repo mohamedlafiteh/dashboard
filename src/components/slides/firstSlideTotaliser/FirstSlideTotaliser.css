@@ -11,4 +11,13 @@ div.polaroid {
 div.container {
   text-align: center;
   padding: 10px 20px;
+  background-image: url("../../../images/Background.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
