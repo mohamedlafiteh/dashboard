@@ -1,21 +1,38 @@
-import React, { Component } from "react";
-import "./SecondSlideInformation.css";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import { flexbox } from "@material-ui/system";
 
-export class SecondSlideInformation extends Component {
-  constructor(props) {
-    super(props);
+const useStyles = makeStyles({
+  card: {
+    maxWidth: flexbox
+  },
+  media: {
+    height: 650
   }
+});
 
-  render() {
-    return (
-      <div className='polaroid'>
-        <img src={this.props.picture} alt='' />
-        <div className='container'>
-          <p>{this.props.text}</p>
-        </div>
-      </div>
-    );
-  }
+export default function SecondSlideInformation(props) {
+  const classes = useStyles();
+
+  return (
+    <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={props.picture}
+          title='Contemplative Reptile'
+        />
+        <CardContent>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            {props.text}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
 }
-
-export default SecondSlideInformation;
