@@ -34,7 +34,6 @@ export class Home extends Component {
     const activeSlide = current;
 
     if (activeSlide === 1) {
-      //console.log(imageChange[this.state.currentPicture].text);
       this.setState(currentState => {
         return {
           currentPicture: (currentState.currentPicture + 1) % 3
@@ -44,7 +43,6 @@ export class Home extends Component {
   };
   render() {
     const settings = {
-      dots: true,
       infinite: true,
       autoplay: true,
       speed: 1000,

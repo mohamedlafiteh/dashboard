@@ -9,7 +9,7 @@ export class SecondSlideInformation extends Component {
   render() {
     return (
       <div className='polaroid'>
-        <img src={this.props.picture} alt='' style={{ width: "70%" }} />
+        <img src={this.props.picture} alt='' />
         <div className='container'>
           <p>{this.props.text}</p>
         </div>
