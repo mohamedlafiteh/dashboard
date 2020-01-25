@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./SecondSlideInformation.css";
-//import imgBackground1 from "./water2.jpg";
 
 export class SecondSlideInformation extends Component {
   constructor(props) {
