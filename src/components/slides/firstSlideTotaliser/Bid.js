@@ -7,12 +7,16 @@ const Bid = props => {
   const url = props.url;
 
   return (
-    <p>
-      <img src={url} style={{ width: "100px", height: "100px" }} />
-      <span> {lotName}</span>
-      <span>£{currentBid}</span>
-      <span>Table:{bidderTableNo}</span>
-    </p>
+    <div className="bid">
+      <div
+        className="bidItem bidImage"
+        style={{ backgroundImage: `url(${url})` }}
+      ></div>
+
+      <div className="bidItem"> {lotName}</div>
+      <div className="bidItem">£{currentBid}</div>
+      <div className="bidItem">Table:{bidderTableNo}</div>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Bid from "./Bid";
 import { getImageForLot } from "../../../dao/LotDao";
+import "./fiveLatestBids.css";
 
 const getDateFromSeconds = date => {
   if (date !== null) {
@@ -52,9 +53,9 @@ export class FiveLatestBid extends Component {
   render() {
     const fiveLatest = this.getFiveLatest();
     return (
-      <div>
-        <h1>5 Latest Bids:</h1>
-        <div>
+      <div className="fiveLatestBids-component">
+        <h2 className="titleFiveLatestBids">Top 5 Latest Bids:</h2>
+        <div className="bids-wrapper">
           {fiveLatest.map((lot, index) => {
             let imageUrl = this.getImageUrl(lot);
             return <Bid lot={lot} key={index} url={imageUrl} />;
