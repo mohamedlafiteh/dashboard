@@ -1,0 +1,60 @@
+.wrapper {
+    width: 900px;
+    height: 400px;
+    position: relative;
+    left: 0px;
+    top: 700px;
+  }
+  
+  .Background {
+    background-image: url("../../../images/Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+  }
+  
+  .containerT {
+    width: 45vw;
+    height: 100vh;
+    position: relative;
+    left: 50%;
+    top: 0;
+  }
+  
+  .water_pump {
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    left: 0%;
+    top: 20%;
+    z-index: 1;
+  }
+  
+  .jerrycan {
+    width: 20vw;
+    height: 20vh;
+    position: absolute;
+    left: 40%;
+    top: 70%;
+    z-index: 2;
+  }
+  
+  .droplet {
+    width: 1vw;
+    height: 3vh;
+    position: absolute;
+    left: 47.5%;
+    z-index: 0;
+  }
+  
+  .totalNumber {
+    width: 12vw;
+    height: 8vh;
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    z-index: 3;
+  }
+  
+  
