@@ -1,60 +1,38 @@
-import React, { Component } from "react";
-import "./SecondSlideInformation.css";
-import imgBackground1 from "./water2.jpg";
-import imgBackground2 from "./water22.jpg";
-import imgBackground3 from "./water222.jpg";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import { flexbox } from "@material-ui/system";
 
-const imageChange = [
-  {
-    imageUrl: imgBackground1,
-    text: "Hello world."
+const useStyles = makeStyles({
+  card: {
+    maxWidth: flexbox
   },
-  {
-    imageUrl: imgBackground2,
-    text: "WaterAid is great ."
-  },
-  {
-    imageUrl: imgBackground3,
-    text: " the Serengeti is beautiful."
+  media: {
+    height: 650
   }
-];
+});
 
-export class SecondSlideInformation extends Component {
-  state = {
-    pic: [],
-    text: ""
-  };
+export default function SecondSlideInformation(props) {
+  const classes = useStyles();
 
-  componentDidMount() {
-    setInterval(() => {
-      this.shuffle(imageChange);
-    }, 4000);
-  }
-  shuffle = arr => {
-    var i, j, temp;
-    for (i = arr.length - 1; i > 0; i--) {
-      j = Math.floor(Math.random() * (i + 1));
-      temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
-    }
-    //console.log("this is arr" + arr[0].imageUrl);
-    this.setState({
-      pic: arr[0].imageUrl,
-      text: arr[0].text
-    });
-  };
-  render() {
-    const { pic, text } = this.state;
-    return (
-      <div className='polaroid'>
-        <img src={pic} alt='' style={{ width: "70%" }} />
-        <div className='container'>
-          <p>{text}</p>
-        </div>
-      </div>
-    );
-  }
+  return (
+    <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={props.picture}
+          title='Contemplative Reptile'
+        />
+        <CardContent>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            {props.text}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
 }
-
-export default SecondSlideInformation;
