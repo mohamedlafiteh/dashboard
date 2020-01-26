@@ -19,7 +19,7 @@ export class FiveLatestBid extends Component {
     };
   }
 
-  getFiveLatest() {
+  getFiveLatest = () => {
     return this.props.lots
       .filter(function(el) {
         return el.data().lastBidTime != null;
@@ -30,7 +30,24 @@ export class FiveLatestBid extends Component {
         return a > b ? -1 : a < b ? 1 : 0;
       })
       .slice(0, 5);
-  }
+  };
+
+  getImageUrl = lot => {
+    let imageUrl = this.state.imageDictionary[lot.id];
+    if (!this.state.imageDictionary[lot.id]) {
+      getImageForLot(lot.id, lot.data().image)
+        .getDownloadURL()
+        .then(url => {
+          this.setState(state => ({
+            imageDictionary: {
+              ...state.imageDictionary,
+              [lot.id]: url
+            }
+          }));
+        });
+    }
+    return imageUrl;
+  };
 
   render() {
     const fiveLatest = this.getFiveLatest();
@@ -39,19 +56,7 @@ export class FiveLatestBid extends Component {
         <h1>5 Latest Bids:</h1>
         <div>
           {fiveLatest.map((lot, index) => {
-            let imageUrl = this.state.imageDictionary[lot.id];
-            if (!this.state.imageDictionary[lot.id]) {
-              getImageForLot(lot.id, lot.data().image)
-                .getDownloadURL()
-                .then(url => {
-                  this.setState(state => ({
-                    imageDictionary: {
-                      ...state.imageDictionary,
-                      [lot.id]: url
-                    }
-                  }));
-                });
-            }
+            let imageUrl = this.getImageUrl(lot);
             return <Bid lot={lot} key={index} url={imageUrl} />;
           })}
         </div>
