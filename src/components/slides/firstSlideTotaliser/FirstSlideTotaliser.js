@@ -1,14 +1,14 @@
 import React from "react";
 import "./FirstSlideTotaliser.css";
-import LotRetrievalComponent from "../../../lotProcessor/LotRetrievalComponent.js"
+import LotRetrievalComponent from "../../../lotProcessor/LotRetrievalComponent.js";
+import FiveLatestBid from "./FiveLatestBid";
 
-export class FirstSlideTotaliser extends LotRetrievalComponent {
+class FirstSlideTotaliser extends LotRetrievalComponent {
   render() {
     return (
-      <div className='polaroid'>
-        <div className='container'>
-          <h1>Lots:</h1>
-          <ul>{this.state.lots.map(lot => <li>{lot.data().lotName}</li>)}</ul>
+      <div className="polaroid">
+        <div className="container">
+          <FiveLatestBid lots={this.state.lots} />
         </div>
       </div>
     );
