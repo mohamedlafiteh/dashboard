@@ -11,9 +11,9 @@ class FirstSlideTotaliser extends LotRetrievalComponent {
   render() {
     return (
       <div className="polaroid">
-        <div className="container">
+        <div className="container" style={{display:"flex", flexDirection:"row"}}>
           <FiveLatestBid lots={this.state.lots} />
-            <Totaliser lots={this.state.lots} />
+          <Totaliser lots={this.state.lots} />
         </div>
       </div>
     );

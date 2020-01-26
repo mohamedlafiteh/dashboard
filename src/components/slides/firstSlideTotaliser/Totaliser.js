@@ -6,7 +6,6 @@ import { Spring } from 'react-spring/renderprops';
 import waterPump from '../../../images/Water_pump.png';
 import Jerrycan from "../../../images/Jerrycan.png";
 import droplet from "../../../images/droplet.png";
-import Background from "../../../images/Background.jpg";
 
 class Totaliser extends Component {
     constructor(props) {
@@ -32,13 +31,13 @@ class Totaliser extends Component {
 
     render() {
         return (
-            <div style={{ display: "flex" }} src={Background} className="Background">
+            <div style={{ display: "flex" }} className="Background">
                 <div className="containerT">
                     <div>
                         <img src={waterPump} alt="water pump" className="water_pump" />
                         <Spring
-                            from={{ top: 390 }}
-                            to={{ top: 525 }}
+                            from={{top:"38%"}}
+                            to={{top:"51%"}}
                             reset={true}
                             delay={1000}>
                             {props => <img style={{ top: props.top }} className="droplet" src={droplet} alt="Droplet" />
