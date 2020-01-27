@@ -18,7 +18,7 @@ class Totaliser extends Component {
     getTotal() {
         return this.props.lots.reduce(
             (total, lot) => {
-                return total + lot.data().currentBid;
+                return total + parseInt(lot.data().currentBid);
             }, 0);
     }
 
