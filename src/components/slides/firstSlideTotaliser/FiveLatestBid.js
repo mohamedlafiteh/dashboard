@@ -35,7 +35,7 @@ export class FiveLatestBid extends Component {
 
   getImageUrl = lot => {
     let imageUrl = this.state.imageDictionary[lot.id];
-    if (!this.state.imageDictionary[lot.id]) {
+    if (!imageUrl) {
       getImageForLot(lot.id, lot.data().image)
         .getDownloadURL()
         .then(url => {
