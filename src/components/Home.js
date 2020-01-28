@@ -19,7 +19,7 @@ export class Home extends Component {
     if (current === 1) {
       this.setState(currentState => {
         return {
-          currentPicture: (currentState.currentPicture + 1)
+          currentPicture: currentState.currentPicture + 1
         };
       });
     }
@@ -28,7 +28,7 @@ export class Home extends Component {
   render() {
     const settings = {
       infinite: true,
-      autoplay: true,
+      //autoplay: true,
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
