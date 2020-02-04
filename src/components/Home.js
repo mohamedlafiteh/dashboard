@@ -1,24 +1,43 @@
 import React, { Component } from "react";
 import FirstSlideTotaliser from "./slides/firstSlideTotaliser/FirstSlideTotaliser";
-import SecondSlideInformation from "./slides/secondSlideInformation/SecondSlideInformation";
+import SecondSlide from "./slides/secondSlideInformation/SecondSlide";
 import ThirdSlidePlaceholder from "./slides/thirdSlidePlaceholder/ThirdSlidePlaceholder";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+
 export class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPicture: 0
+    };
+  }
+
+  changeSlide = current => {
+    if (current === 1) {
+      this.setState(currentState => {
+        return {
+          currentPicture: currentState.currentPicture + 1
+        };
+      });
+    }
+  };
+
   render() {
-    var settings = {
+    const settings = {
       infinite: true,
-      speed: 500,
       //autoplay: true,
+      speed: 1000,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      beforeChange: (current, next) => this.changeSlide(next)
     };
     return (
       <Slider {...settings}>
         <FirstSlideTotaliser />
-        <SecondSlideInformation />
+        <SecondSlide current={this.state.currentPicture} />
         <ThirdSlidePlaceholder />
       </Slider>
     );
