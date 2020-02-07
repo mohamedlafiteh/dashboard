@@ -21,7 +21,7 @@
   z-index: 1;
 }
 .jerrycan {
-  width: 31vw;
+  width: 32vw;
   height: 30vh;
   position: absolute;
   left: 17.5%;
@@ -29,8 +29,8 @@
   z-index: 2;
 }
 .droplet {
-  width: 2vw;
-  height: 3vh;
+  width: 3vw;
+  height: 4vh;
   position: absolute;
   left: 42.5%;
   z-index: 0;
@@ -38,8 +38,8 @@
 .totalNumber {
   font-size: 240%;
   position: absolute;
-  left: 36.5%;
-  top: 60%;
+  left: 38%;
+  top: 59.5%;
   z-index: 3;
   transform: rotate(10deg);
   font-family: Arial, Helvetica, sans-serif;
@@ -47,8 +47,8 @@
 .text { 
   font-size: 240%;
   position: absolute;
-  left: 34%;
-  top: 28%;
+  left: 35%;
+  top: 26%;
   z-index: 4;
   font-family: Arial, Helvetica, sans-serif;
 }
