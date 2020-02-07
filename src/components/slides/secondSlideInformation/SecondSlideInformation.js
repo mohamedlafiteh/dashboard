@@ -4,7 +4,7 @@ import "./SecondSlideInformation.css";
 export default function SecondSlideInformation(props) {
   return (
     <div>
-      <div>
+      <div style={user}>
         <img style={imgStyle} src={props.picture} />
       </div>
       <div>
@@ -13,6 +13,12 @@ export default function SecondSlideInformation(props) {
     </div>
   );
 }
+
+const user = {
+  width: "400px",
+  height: "60px",
+  margin: "2em 0"
+};
 
 const imgStyle = {
   width: "800px",
