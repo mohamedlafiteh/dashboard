@@ -24,5 +24,6 @@ const imgStyle = {
   width: "800px",
   height: "650px",
   marginRight: "15px",
-  float: "left"
+  float: "left",
+  borderRadius: "20px"
 };
