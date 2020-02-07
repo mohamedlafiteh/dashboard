@@ -2,7 +2,15 @@
   text-align: center;
 }
 
-.header-container,
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  height: 13vh;
+
+  font-size: 2em;
+}
+
 .footer-container {
   display: flex;
   justify-content: space-around;
