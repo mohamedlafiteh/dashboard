@@ -3,7 +3,9 @@ import React from "react";
 const Bid = props => {
   const lotName = props.lot.data().lotName;
   const currentBid = props.lot.data().currentBid;
-  const bidderTableNo = props.lot.data().bidderTableNo;
+  const bidderTableNo = props.lot.data().currentBidderTable
+    ? props.lot.data().currentBidderTable
+    : "n/a";
   const url = props.url;
 
   return (
