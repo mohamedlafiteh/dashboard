@@ -1,38 +1,22 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import { flexbox } from "@material-ui/system";
-
-const useStyles = makeStyles({
-  card: {
-    maxWidth: flexbox
-  },
-  media: {
-    height: 650
-  }
-});
+import "./SecondSlideInformation.css";
 
 export default function SecondSlideInformation(props) {
-  const classes = useStyles();
-
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.picture}
-          title='Where WaterAid is helping'
-        />
-        <CardContent>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            {props.text}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <div>
+      <div>
+        <img style={imgStyle} src={props.picture} />
+      </div>
+      <div>
+        <p className='text'>{props.text}</p>
+      </div>
+    </div>
   );
 }
+
+const imgStyle = {
+  width: "800px",
+  height: "650px",
+  marginRight: "15px",
+  float: "left"
+};
