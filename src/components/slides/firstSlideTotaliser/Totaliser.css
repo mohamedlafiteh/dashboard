@@ -17,7 +17,7 @@
   height: 73%;
   position: absolute;
   left: 0%;
-  top: 5%;
+  top: 0%;
   z-index: 1;
 }
 .jerrycan {
@@ -25,7 +25,7 @@
   height: 30vh;
   position: absolute;
   left: 17.5%;
-  top: 51%;
+  top: 48%;
   z-index: 2;
 }
 .droplet {
@@ -39,8 +39,16 @@
   font-size: 240%;
   position: absolute;
   left: 36.5%;
-  top: 62%;
+  top: 60%;
   z-index: 3;
-  transform: rotate(8deg);
+  transform: rotate(10deg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.text { 
+  font-size: 240%;
+  position: absolute;
+  left: 34%;
+  top: 28%;
+  z-index: 4;
   font-family: Arial, Helvetica, sans-serif;
 }

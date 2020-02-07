@@ -22,11 +22,18 @@ class Totaliser extends Component {
     getTotal = () => {
         let total = this.props.lots.reduce(
             (total, lot) => {
-                return total + parseInt(lot.data().currentBid);
+                let bid = lot.data().currentBid;
+                if (typeof (bid) === "number") {
+                    return total + parseInt(lot.data().currentBid);
+                }
+                else {
+                    return total;
+                }
             }, 0);
-        // if (total !== this.state.newTotal) {
-        //     this.setState({ newTotal: total });
-        // }
+
+        if (total !== this.state.newTotal) {
+            this.setState({ newTotal: total });
+        }
         return total;
     }
 
@@ -47,6 +54,7 @@ class Totaliser extends Component {
             <div style={{ display: "flex" }} className="Background">
                 <div className="containerTotaliser">
                     <div>
+                    <h1 className="text"> Total raised so far: </h1>
                         <img src={waterpump1} alt="water pump" className="water_pump" />
                         <Spring
                             from={{ top: "45%" }}
