@@ -1,4 +1,19 @@
-.text {
+.textStyle {
+  width: 90%;
+  height: 70%;
+  text-align: left;
+  font-size: 28px;
   color: black;
-  margin-top: 20px;
+  overflow-wrap: break-word;
+  margin-right: 5%;
+  margin-left:5%;
 }
+
+.imgStyle {
+  width: 800px;
+  height: 650px;
+  margin-right: 5%;
+  margin-left:5%;
+  float: left;
+  border-radius: 20px;
+};

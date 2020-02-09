@@ -3,7 +3,7 @@ import "./Totaliser.css"
 
 import { Spring } from 'react-spring/renderprops';
 
-import waterpump1 from '../../../images/Waterpump1.png';
+import waterpump1 from '../../../images/waterpump1.png';
 import Jerrycan from "../../../images/Jerrycan1.png";
 import droplet from "../../../images/droplet.png";
 
