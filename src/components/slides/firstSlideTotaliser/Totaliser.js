@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Totaliser.css"
-
+import Confetti from 'react-confetti';
 import { Spring } from 'react-spring/renderprops';
 
 import waterpump1 from '../../../images/Waterpump1.png';
@@ -11,19 +11,24 @@ class Totaliser extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newTotal: 0
+            milestone: 10,
+            showingConfetti: true,
+            total: 0
         };
     }
 
     componentDidUpdate() {
-        this.getTotal();
+        const newTotal = this.getTotal();
+        if (newTotal !== this.state.total) {
+            this.setState({ total: newTotal }, this.onNewTotal);
+        }
     }
 
     getTotal = () => {
         let total = this.props.lots.reduce(
             (total, lot) => {
                 let bid = lot.data().currentBid;
-                if (typeof (bid) === "number") {
+                if (typeof bid === "number") {
                     return total + parseInt(lot.data().currentBid);
                 }
                 else {
@@ -31,16 +36,24 @@ class Totaliser extends Component {
                 }
             }, 0);
 
-        if (total !== this.state.newTotal) {
-            this.setState({ newTotal: total });
-        }
         return total;
+    }
+
+    onNewTotal = () => {
+        if (this.state.total >= this.state.milestone) {
+            let newMilestone = this.state.total + 500;
+            this.setState({ showingConfetti: true, milestone: newMilestone })
+            setTimeout(() => {
+                this.setState({ showingConfetti: false })
+            }, 21000);
+        }
     }
 
     render() {
         return (
             <div style={{ display: "flex" }} className="Background">
                 <div className="containerTotaliser">
+                    {this.state.showingConfetti && <Confetti numberOfPieces="600" tweenDuration="5000" initialVelocityY="50" />}
                     <div>
                         <h1 className="text"> Total raised so far: </h1>
                         <img src={waterpump1} alt="water pump" className="water_pump" />
@@ -56,7 +69,7 @@ class Totaliser extends Component {
                     <div>
                         <Spring
                             from={{ number: 0 }}
-                            to={{ number: this.state.newTotal }}>
+                            to={{ number: this.state.total }}>
                             {props => <h1 className="totalNumber">£{props.number.toFixed()}
                             </h1>}
                         </Spring>
@@ -71,3 +84,4 @@ class Totaliser extends Component {
 };
 
 export default Totaliser;
+
