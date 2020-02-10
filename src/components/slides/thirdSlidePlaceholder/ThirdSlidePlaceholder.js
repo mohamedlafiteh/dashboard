@@ -11,10 +11,11 @@ class ThirdSlidePlaceholder extends LotRetrievalComponent {
         el.data().currentBid
       ]);
     });
+    console.log(newArray);
     return newArray;
   };
   render() {
-    console.log(this.loopArray());
+    this.loopArray();
     return (
       <div>
         <h1>Slide Three</h1>
