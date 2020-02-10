@@ -36,9 +36,9 @@ export class Home extends Component {
     };
     return (
       <Slider {...settings}>
+        <ThirdSlidePlaceholder />
         <FirstSlideTotaliser />
         <SecondSlide current={this.state.currentPicture} />
-        <ThirdSlidePlaceholder />
       </Slider>
     );
   }
