@@ -5,9 +5,10 @@ import logoCapgemini from "../images/logo-capgemini.png";
 const Footer = () => {
   return (
     <div className="footer-container">
-      <p>Dashboard created by:</p>
+      <p className="footer-p1">Dashboard created by:</p>
       <img className="cyf-logo" src={logoCyf} alt="CYF" />
-      <p>...in partnership with </p>
+
+      <p className="footer-p2">...in partnership with </p>
       <img className="capgemini-logo" src={logoCapgemini} alt="CYF" />
     </div>
   );
