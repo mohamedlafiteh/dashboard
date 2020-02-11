@@ -6,9 +6,13 @@
   display: flex;
   justify-content: space-around;
   border: 1px solid black;
-  height: 13vh;
+  height: 8vh;
 
   font-size: 2em;
+}
+.title {
+  margin: 1%;
+  font-size: 4.5vh;
 }
 
 .footer-container {
