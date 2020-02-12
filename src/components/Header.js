@@ -10,7 +10,7 @@ const Header = () => {
         src={logoScotishWater}
         alt="WaterAid - Scottish Water Collab"
       />
-      <h1>Silent Auction Dashboard</h1>
+      <h1 className="title">Silent Auction Dashboard</h1>
       <img
         className="water-aid-logo"
         src={logoWaterAid}

@@ -17,7 +17,7 @@ const Bid = props => {
 
       <div className="bidItem bidName"> {lotName}</div>
       <div className="bidItem">£{currentBid}</div>
-      <div className="bidItem">Table:{bidderTableNo}</div>
+      <div className="bidItem">Table: {bidderTableNo}</div>
     </div>
   );
 };
