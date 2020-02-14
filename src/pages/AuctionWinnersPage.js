@@ -1,68 +1,68 @@
 import React, { Component } from "react"
+
+import LotRetrievalComponent from "../lotProcessor/LotRetrievalComponent"
 // import Bid from "../components/slides/firstSlideTotaliser/Bid";
 // import { getImageForLot } from "../dao/LotDao";
 import "./AuctionWinnersPage.css";
 
-// const getDateFromSeconds = date => {
-// if (date !== null) {
-// return new Date(date.seconds * 1000);
-// } else {
-// return null;
-// }
-// };
-
-export class AuctionWinnersPage extends Component {
+export class AuctionWinnersPage extends LotRetrievalComponent {
     constructor(props) {
         super(props);
         this.state = {
             final: 0,
-            imageDictionary: {}
+            lots: []
         }
     }
-
-    getBids() {
-        return
+    
+    componentDidMount = () => {
+        this.call()
     }
+
+    // getBids = () => {
+    //     let bab = this.props.lots
+    //     .filter(function(el) {
+    //         return el.data().lastBidTime != null;
+    //     })
+    //     console.log("hw1w", this.props)
+    //     return bab;
+    // }
 
     getWinner() {
         return
     }
 
-    // getFiveLatest = () => {
-    // return this.props.lots
-    // .filter(function (el) {
-    // return el.data().lastBidTime != null;
-    // })
-    // .sort(function (o1, o2) {
-    // let a = getDateFromSeconds(o1.data().lastBidTime);
-    // let b = getDateFromSeconds(o2.data().lastBidTime);
-    // return a > b ? -1 : a < b ? 1 : 0;
-    // })
-    // .slice(0, 5);
-    // };
-
+    call = () => {
+        console.log("at the call",this.props.lots)
+        const numbers = [1, 2, 3, 4, 5];
+        const listItems = numbers.map((number) =>
+            <div  styles="overflow-x:auto!important;">
+            <table className="table" >
+                <tr>
+                    <th> Lot Image Lot Name </th>
+                    <th> Firstname Lastname </th>
+                </tr>
+                <tr>
+                    <td> <li>{number}</li> </td>
+                    <td> <li>{number}</li> </td>
+                </tr>
+            </table>
+            </div>
+        );
+        return listItems;
+    }
 
     render() {
-        // const fiveLatest = this.getFiveLatest();
+        console.log("at render",this.props.lots)
         return (
-            <div className="polaroid">
-
+            <div className="screen">
                 <div className="background" style={{ display: "flex", flexDirection: "row" }}>
-
                     <div className="list">
                         <h2 > This is Final Page{this.state.final} </h2>
-                        <ul>
-                            <li> 1. Finally </li>
-                            <li> 2. Arranged </li>
-                            <li> 3. your Tasks </li>
-                        </ul>
+                        <div >
+                            {/* {this.call()}                              */}
+                            {console.log(this.props.lots)}
+                        </div>
                     </div>
-                    {/* <div className="fiveLatestBids-component">
-<h2 className="titleFiveLatestBids">Top 5 Latest Bids:</h2>
-<div className="bids-wrapper">
-{ <Bid lot={lot} />; })}
-</div>
-</div> */}
                 </div>
 
             </div>
