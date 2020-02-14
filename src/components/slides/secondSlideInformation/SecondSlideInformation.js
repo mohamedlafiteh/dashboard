@@ -5,11 +5,13 @@ export default function SecondSlideInformation(props) {
   return (
     <div>
       <div style={user}>
-        <img className="imgStyle" src={props.picture} />
+        <img className='imgStyle' src={props.picture} />
       </div>
-      <div className = "textStyle">
-        {props.text}
-      </div>
+      <div className='textStyle'>{props.info}</div>
+      <br />
+      <div className='textStyle'>{props.caption}</div>
+      <br />
+      <div className='textStyle'>{props.credit}</div>
     </div>
   );
 }
