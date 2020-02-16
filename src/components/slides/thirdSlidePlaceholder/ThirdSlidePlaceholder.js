@@ -13,13 +13,13 @@ class ThirdSlidePlaceholder extends React.Component {
   loopArray = () => {
     let tables = [];
     this.props.lots.forEach(el => {
-      let currentBid = el.data().currentBid || 0;
-      let tableBid = this.getBidForTable(el.data().currentBidderTable, tables);
+      let currentBid = el.currentBid || 0;
+      let tableBid = this.getBidForTable(el.currentBidderTable, tables);
       let item = {
-        table: el.data().currentBidderTable,
+        table: el.currentBidderTable,
         bid: currentBid + tableBid
       };
-      tables[el.data().currentBidderTable] = item;
+      tables[el.currentBidderTable] = item;
     });
     //console.log(tables.sort((a, b) => a.bid - b.bid));
     return tables.sort((a, b) => b.bid - a.bid);

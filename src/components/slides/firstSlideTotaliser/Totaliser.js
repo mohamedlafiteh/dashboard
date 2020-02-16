@@ -3,7 +3,7 @@ import "./Totaliser.css";
 import Confetti from "react-confetti";
 import { Spring } from "react-spring/renderprops";
 
-import waterpump1 from "../../../images/waterpump1.png";
+import waterpump1 from "../../../images/Waterpump1.png";
 import Jerrycan from "../../../images/Jerrycan1.png";
 import droplet from "../../../images/droplet.png";
 
@@ -26,9 +26,9 @@ class Totaliser extends Component {
 
   getTotal = () => {
     let total = this.props.lots.reduce((total, lot) => {
-      let bid = lot.data().currentBid;
+      let bid = lot.currentBid;
       if (typeof bid === "number") {
-        return total + parseInt(lot.data().currentBid);
+        return total + parseInt(lot.currentBid);
       } else {
         return total;
       }

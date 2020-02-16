@@ -1,5 +1,6 @@
 import React from "react";
-import { getLots } from "../dao/LotDao";
+import { getLots, getUserById } from "../dao/LotDao";
+import { getAllUsers } from "../dao/LotDao";
 import { getLotsWithCurrentBidder } from "../dao/LotDao";
 import { processChange } from "./ChangeProcessor";
 import FirstSlideTotaliser from ".././components/slides/firstSlideTotaliser/FirstSlideTotaliser";
@@ -19,6 +20,7 @@ class LotRetrievalComponent extends React.Component {
     };
 
     this.getAllLots = this.getAllLots.bind(this);
+    this.getAllUsers = this.getAllUsers.bind(this);
     this.processLots = this.processLots.bind(this);
   }
 
@@ -34,6 +36,7 @@ class LotRetrievalComponent extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
+    this.getAllUsers();
     this.getAllLots();
   }
 
@@ -43,10 +46,17 @@ class LotRetrievalComponent extends React.Component {
 
   getAllLots() {
     let newLots = getLots();
-        // console.log("let's see what is coming back " +newLots);
     let lotsWithUsers = getLotsWithCurrentBidder();
-    // console.log("let's see what is coming back " +lotsWithUsers);
     this.processLots(newLots, this);
+  }
+
+  getAllUsers() {
+    this.state.users = []
+     getAllUsers().onSnapshot(snapshot =>{
+      snapshot.forEach(doc => {
+        this.state.users.push(doc.data());
+      })
+    });
   }
 
   processLots(newLots, t) {
@@ -54,7 +64,15 @@ class LotRetrievalComponent extends React.Component {
       newLots.onSnapshot(snapshot => {
         let changes = snapshot.docChanges();
         changes.forEach(change => {
-          processChange(change, t);
+          // if(change.doc.data().currentBidder!=null){
+          //   getUserById(change.doc.data().currentBidder).then(data=>{
+          //     data.forEach(doc =>
+          //       change.doc.bidderName = doc.data().forename+' '+doc.data().lastname);
+          //       processChange(change, t);
+          //     })
+          // }else {
+            processChange(change, t);
+          // }
         });
       });
     }
@@ -63,7 +81,7 @@ class LotRetrievalComponent extends React.Component {
   render() {
     const settings = {
       infinite: true,
-      //autoplay: true,
+      autoplay: true,
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
