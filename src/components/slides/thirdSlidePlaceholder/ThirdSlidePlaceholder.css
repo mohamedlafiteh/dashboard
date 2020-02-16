@@ -4,14 +4,14 @@
   margin: 90px;
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px;
-  grid-gap: 30px 200px;
+  grid-gap: 0px 200px;
 }
 
 #text {
   font-size: 40px;
   position: relative;
   top: -135px;
-  margin-left: 51px;
+  margin-left: 42px;
   width: 100%;
   padding: 15px;
   color: white;
@@ -37,13 +37,13 @@
 }
 
 .table {
-  font-size: 40px;
+  font-size: 34px;
   position: relative;
-  top: -135px;
-  margin-left: 60px;
-  margin-top: 37px;
-  width: 100%;
-  padding: 15px;
+  top: -165px;
+  margin-left: 85px;
+  margin-top: 42px;
+  width: 50%;
+  padding: 1px;
   color: white;
   background-color: blue;
 }
