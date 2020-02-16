@@ -27,4 +27,6 @@ export function getImageForCountry(countryID) {
     return storage.ref().child('images/countries/' + countryID + '.jpg')
 }
 
-
+export function  getCurrentBiddersFullNames(bidderCode) { 
+return db.collection("users").where("bidderCode", "==", bidderCode).get()
+}

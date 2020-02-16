@@ -1,7 +1,6 @@
 import React from "react";
 
 const Bid = props => {
-  console.log("Bids lot", props.lot.data())
   const lotName = props.lot.data().lotName;
   const currentBid = props.lot.data().currentBid;
   const bidderTableNo = props.lot.data().currentBidderTable
