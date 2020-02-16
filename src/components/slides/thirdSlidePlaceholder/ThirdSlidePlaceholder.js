@@ -21,12 +21,10 @@ class ThirdSlidePlaceholder extends React.Component {
       };
       tables[el.data().currentBidderTable] = item;
     });
-    //console.log(tables.sort((a, b) => a.bid - b.bid));
     return tables.sort((a, b) => b.bid - a.bid);
   };
   render() {
     let allTableTotals = this.loopArray();
-    //console.log(allTableTotals);
 
     return (
       <div className='main'>

@@ -4,7 +4,7 @@
   margin: 90px;
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px;
-  grid-gap: 30px 200px;
+  grid-gap: 1px 200px;
 }
 
 #text {
