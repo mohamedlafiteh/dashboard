@@ -14,7 +14,7 @@ class ThirdSlidePlaceholder extends LotRetrievalComponent {
     return newArray;
   };
   render() {
-    console.log(this.loopArray());
+    this.loopArray();
     return (
       <div>
         <h1>Slide Three</h1>
