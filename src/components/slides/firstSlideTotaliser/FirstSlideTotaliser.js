@@ -1,19 +1,19 @@
 import React from "react";
 import "./FirstSlideTotaliser.css";
 
-
-import  Totaliser from "./Totaliser.js"
-import LotRetrievalComponent from "../../../lotProcessor/LotRetrievalComponent.js";
+import Totaliser from "./Totaliser.js";
 import FiveLatestBid from "./FiveLatestBid";
 
-
-class FirstSlideTotaliser extends LotRetrievalComponent {
+class FirstSlideTotaliser extends React.Component {
   render() {
     return (
-      <div className="polaroid">
-        <div className="container" style={{display:"flex", flexDirection:"row"}}>
-          <FiveLatestBid lots={this.state.lots} />
-          <Totaliser lots={this.state.lots} />
+      <div className='polaroid'>
+        <div
+          className='container'
+          style={{ display: "flex", flexDirection: "row" }}
+        >
+          <FiveLatestBid lots={this.props.lots} />
+          <Totaliser lots={this.props.lots} />
         </div>
       </div>
     );

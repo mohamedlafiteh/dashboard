@@ -1,23 +1,52 @@
 import React from "react";
-import LotRetrievalComponent from "../../../lotProcessor/LotRetrievalComponent.js";
+import image from "../../../images/image.png";
+import "./ThirdSlidePlaceholder.css";
 
-class ThirdSlidePlaceholder extends LotRetrievalComponent {
+class ThirdSlidePlaceholder extends React.Component {
+  getBidForTable = (tableNumber, bidArray) => {
+    if (bidArray[tableNumber]) {
+      return bidArray[tableNumber].bid;
+    }
+    return 0;
+  };
+
   loopArray = () => {
-    let newArray = [];
-
-    this.state.lots.forEach(el => {
-      return newArray.push([
-        el.data().currentBidderTable,
-        el.data().currentBid
-      ]);
+    let tables = [];
+    this.props.lots.forEach(el => {
+      let currentBid = el.data().currentBid || 0;
+      let tableBid = this.getBidForTable(el.data().currentBidderTable, tables);
+      let item = {
+        table: el.data().currentBidderTable,
+        bid: currentBid + tableBid
+      };
+      tables[el.data().currentBidderTable] = item;
     });
-    return newArray;
+    //console.log(tables.sort((a, b) => a.bid - b.bid));
+    return tables.sort((a, b) => b.bid - a.bid);
   };
   render() {
-    this.loopArray();
+    let allTableTotals = this.loopArray();
+    //console.log(allTableTotals);
+
     return (
-      <div>
-        <h1>Slide Three</h1>
+      <div className='main'>
+        <div className='titleContainer'>
+          <h1 className='title'>
+            Is your table one of the top 10 largest winning bidders?
+          </h1>
+        </div>
+
+        <div id='images'>
+          {allTableTotals.map((item, index) => (
+            <div key={index}>
+              <img src={image} className='pic' />
+              <div id='text'> {item.bid}</div>
+              <div>
+                <div className='table'> {item.table}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
