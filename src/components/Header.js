@@ -4,17 +4,17 @@ import logoWaterAid from "../images/logo-water-aid.png";
 
 const Header = () => {
   return (
-    <div className="header-container">
+    <div className='header-container'>
       <img
-        className="water-aid-logo"
+        className='water-aid-logo'
         src={logoScotishWater}
-        alt="WaterAid - Scottish Water Collab"
+        alt='WaterAid - Scottish Water Collab'
       />
-      <h1 className="title">Silent Auction Dashboard</h1>
+      <h1 className='titleSt'>Silent Auction Dashboard</h1>
       <img
-        className="water-aid-logo"
+        className='water-aid-logo'
         src={logoWaterAid}
-        alt="WaterAid - Scottish Water Collab"
+        alt='WaterAid - Scottish Water Collab'
       />
     </div>
   );
