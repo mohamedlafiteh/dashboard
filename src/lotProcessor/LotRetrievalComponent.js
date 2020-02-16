@@ -1,7 +1,6 @@
 import React from "react";
 import { getLots, getUserById } from "../dao/LotDao";
 import { getAllUsers } from "../dao/LotDao";
-import { getLotsWithCurrentBidder } from "../dao/LotDao";
 import { processChange } from "./ChangeProcessor";
 import FirstSlideTotaliser from ".././components/slides/firstSlideTotaliser/FirstSlideTotaliser";
 import ThirdSlidePlaceholder from ".././components/slides/thirdSlidePlaceholder/ThirdSlidePlaceholder";
@@ -46,7 +45,6 @@ class LotRetrievalComponent extends React.Component {
 
   getAllLots() {
     let newLots = getLots();
-    let lotsWithUsers = getLotsWithCurrentBidder();
     this.processLots(newLots, this);
   }
 
@@ -64,15 +62,7 @@ class LotRetrievalComponent extends React.Component {
       newLots.onSnapshot(snapshot => {
         let changes = snapshot.docChanges();
         changes.forEach(change => {
-          // if(change.doc.data().currentBidder!=null){
-          //   getUserById(change.doc.data().currentBidder).then(data=>{
-          //     data.forEach(doc =>
-          //       change.doc.bidderName = doc.data().forename+' '+doc.data().lastname);
-          //       processChange(change, t);
-          //     })
-          // }else {
             processChange(change, t);
-          // }
         });
       });
     }

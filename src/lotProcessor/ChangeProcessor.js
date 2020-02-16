@@ -15,12 +15,9 @@ export function processChange(change, s) {
     }
 }
 function setChangeUser (change, s){
-    console.log ("let's see " + s.state.users);
     const currentUser = s.state.users.filter(user => user.bidderCode === change.currentBidder);
     if(currentUser!=null && currentUser.length > 0){
         change.currentBidderName = currentUser[0].forename + ' '+ currentUser[0].surname;
-        console.log(change);
-        console.log(change.currentBidderName);
     }
     return change;
 }
@@ -28,7 +25,6 @@ function addLot(change, s) {
 
     s.setState(state => {
         const lots = state.lots.concat(change);
-        console.log("lots "+ lots);
         return {
             lots
         };
