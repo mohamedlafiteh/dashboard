@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 import { getLots } from "../dao/LotDao";
+import { getLotsWithCurrentBidder } from "../dao/LotDao";
 import { processChange } from "./ChangeProcessor";
 
 class LotRetrievalComponent extends Component {
@@ -25,6 +26,9 @@ class LotRetrievalComponent extends Component {
 
   getAllLots() {
     let newLots = getLots();
+        // console.log("let's see what is coming back " +newLots);
+    let lotsWithUsers = getLotsWithCurrentBidder();
+    // console.log("let's see what is coming back " +lotsWithUsers);
     this.processLots(newLots, this);
   }
 

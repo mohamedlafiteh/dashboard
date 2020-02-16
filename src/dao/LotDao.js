@@ -27,4 +27,18 @@ export function getImageForCountry(countryID) {
     return storage.ref().child('images/countries/' + countryID + '.jpg')
 }
 
-
+export function getLotsWithCurrentBidder(){
+    let users = storage.ref().child('users');
+   return db.collection('lots').get().then(snapshot => {
+       snapshot.forEach(doc => {
+        if(doc.data().currentBidder!=null){
+            console.log("nnnn "+ doc.data().currentBidder);
+            db.collection('users').where("bidderCode","==",doc.data().currentBidder).get().then(usersShot =>{
+                usersShot.forEach(userDoc=> {
+                    console.log("nnnn "+ userDoc.data().forename);
+                })
+            }) 
+        }
+       })  
+    });
+}
