@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
 import Home from "./pages/Home";
-import AuctionWinnersPage from "./pages/AuctionWinnersPage"
+import AuctionWinnersPage from "./pages/AuctionWinnersPage/AuctionWinners"
 import NotFound from "./pages/NotFound"
 
 //import Button from "@material-ui/core/Button";

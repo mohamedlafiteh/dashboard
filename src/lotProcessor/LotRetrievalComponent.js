@@ -7,16 +7,19 @@ class LotRetrievalComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lots: []
+      lots: [],
+      users: []
     };
 
     this.getAllLots = this.getAllLots.bind(this);
     this.processLots = this.processLots.bind(this);
+    // this.getAllUsers = this.getAllUsers.bind(this);
   }
 
   componentDidMount() {
     this._isMounted = true;
     this.getAllLots();
+    // this.getAllUsers();
   }
 
   componentWillUnmount() {
@@ -38,6 +41,13 @@ class LotRetrievalComponent extends Component {
       });
     }
   }
+
+  // getAllUsers() {
+  //   let newUsers = getCurrentBiddersFullNames();
+  //   return newUsers;
+  // }
+
+ 
 }
 
 export default LotRetrievalComponent;
