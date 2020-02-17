@@ -59,17 +59,18 @@ class LotRetrievalComponent extends React.Component {
   render() {
     const settings = {
       infinite: true,
-      //autoplay: true,
-      speed: 1000,
+      autoplay: true,
+      autoplaySpeed: 20000,
+      speed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1,
       beforeChange: (current, next) => this.changeSlide(next)
     };
     return (
       <Slider {...settings}>
-        <ThirdSlidePlaceholder lots={this.state.lots} />
         <FirstSlideTotaliser lots={this.state.lots} />
         <SecondSlide current={this.state.currentPicture} />
+        <ThirdSlidePlaceholder lots={this.state.lots} />
       </Slider>
     );
   }
