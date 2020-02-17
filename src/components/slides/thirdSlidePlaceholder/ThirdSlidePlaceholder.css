@@ -1,34 +1,37 @@
 #images {
   position: relative;
-  width: 10%;
-  margin: 90px;
+  width: 100%;
+  margin-left: 90px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px;
-  grid-gap: 30px 200px;
+  grid-template-rows: 250px 250px;
+  grid-gap: 50px 200px;
 }
 
 #text {
-  font-size: 40px;
+  font-size: 32px;
   position: relative;
-  top: -135px;
-  margin-left: 51px;
+  top: -160px;
+  margin-left: 42px;
   width: 100%;
   padding: 15px;
   color: white;
 }
 
 .pic {
-  height: 20%;
+  height: 100%;
   width: 220%;
 }
 .title {
-  font-size: 35px;
-  margin-top: 100px;
+  font-size: 40px;
+  margin-top: 20px;
+  padding: 5px;
   background-color: blue;
 }
 .titleContainer {
-  max-width: 60%;
-  margin-left: 300px;
+  max-width: 70%;
+  margin-left: 250px;
   max-resolution: 10px;
 }
 
@@ -39,11 +42,10 @@
 .table {
   font-size: 40px;
   position: relative;
-  top: -135px;
-  margin-left: 60px;
-  margin-top: 37px;
-  width: 100%;
-  padding: 15px;
+  top: -130px;
+  margin-left: 78px;
+  width: 50%;
+  padding: 3px;
   color: white;
   background-color: blue;
 }
