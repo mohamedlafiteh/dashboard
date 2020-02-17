@@ -25,7 +25,7 @@
   width: 3vw;
   height: 4vh;
   position: absolute;
-  left: 50.5%;
+  left: 77%;
   z-index: 0;
 }
 .totalNumber {
@@ -44,4 +44,9 @@
   top: 30%;
   z-index: 4;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.confettiBox {
+  width: 48vw;
+  height: 80vh;
 }
