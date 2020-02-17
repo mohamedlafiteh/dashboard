@@ -60,7 +60,7 @@ class LotRetrievalComponent extends React.Component {
     const settings = {
       infinite: true,
       autoplay: true,
-      autoplaySpeed: 20000,
+      autoplaySpeed: 25000,
       speed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1,
