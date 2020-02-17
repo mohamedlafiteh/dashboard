@@ -21,12 +21,11 @@ class ThirdSlidePlaceholder extends React.Component {
       };
       tables[el.data().currentBidderTable] = item;
     });
-    //console.log(tables.sort((a, b) => a.bid - b.bid));
     return tables.sort((a, b) => b.bid - a.bid);
   };
+
   render() {
     let allTableTotals = this.loopArray();
-    //console.log(allTableTotals);
 
     return (
       <div className='main'>
@@ -40,7 +39,7 @@ class ThirdSlidePlaceholder extends React.Component {
           {allTableTotals.map((item, index) => (
             <div key={index}>
               <img src={image} className='pic' />
-              <div id='text'> {item.bid}</div>
+              <div id='text'> £{item.bid}</div>
               <div>
                 <div className='table'> {item.table}</div>
               </div>
