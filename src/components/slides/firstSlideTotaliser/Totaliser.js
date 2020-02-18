@@ -11,8 +11,8 @@ class Totaliser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      milestone: 10,
-      showingConfetti: true,
+      milestone: 0,
+      showingConfetti: false,
       total: 0
     };
   }
@@ -39,11 +39,11 @@ class Totaliser extends Component {
 
   onNewTotal = () => {
     if (this.state.total >= this.state.milestone) {
-      let newMilestone = this.state.total + 500;
+      let newMilestone =  Math.round((this.state.total + 500)/1000)*1000;
       this.setState({ showingConfetti: true, milestone: newMilestone });
       setTimeout(() => {
         this.setState({ showingConfetti: false });
-      }, 18000);
+      }, 14000);
     }
   };
 
@@ -63,8 +63,8 @@ class Totaliser extends Component {
             <h1 className='text'> Total raised so far: </h1>
             <img src={waterpump1} alt='water pump' className='water_pump' />
             <Spring
-              config={{ duration: 1000}}
-              from={{ top: "56%" }}
+              config={{ duration: 1000 }}
+              from={{ top: "60%" }}
               to={{ top: "70%" }}
               trail={1000}
               reset={true}
