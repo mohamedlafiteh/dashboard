@@ -1,5 +1,6 @@
 import React from "react";
-import { getLots } from "../dao/LotDao";
+import { getLots, getUserById } from "../dao/LotDao";
+import { getAllUsers } from "../dao/LotDao";
 import { processChange } from "./ChangeProcessor";
 import FirstSlideTotaliser from ".././components/slides/firstSlideTotaliser/FirstSlideTotaliser";
 import ThirdSlidePlaceholder from ".././components/slides/thirdSlidePlaceholder/ThirdSlidePlaceholder";
@@ -19,6 +20,7 @@ class LotRetrievalComponent extends React.Component {
     };
 
     this.getAllLots = this.getAllLots.bind(this);
+    this.getAllUsers = this.getAllUsers.bind(this);
     this.processLots = this.processLots.bind(this);
     // this.getAllUsers = this.getAllUsers.bind(this);
   }
@@ -35,6 +37,7 @@ class LotRetrievalComponent extends React.Component {
 
   componentDidMount() {
     this._isMounted = true;
+    this.getAllUsers();
     this.getAllLots();
     // this.getAllUsers();
   }
@@ -48,12 +51,21 @@ class LotRetrievalComponent extends React.Component {
     this.processLots(newLots, this);
   }
 
+  getAllUsers() {
+    this.state.users = []
+     getAllUsers().onSnapshot(snapshot =>{
+      snapshot.forEach(doc => {
+        this.state.users.push(doc.data());
+      })
+    });
+  }
+
   processLots(newLots, t) {
     if (newLots !== undefined) {
       newLots.onSnapshot(snapshot => {
         let changes = snapshot.docChanges();
         changes.forEach(change => {
-          processChange(change, t);
+            processChange(change, t);
         });
       });
     }
@@ -65,7 +77,7 @@ class LotRetrievalComponent extends React.Component {
       infinite: true,
       autoplay: true,
       autoplaySpeed: 25000,
-      speed: 3000,
+      speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
       beforeChange: (current, next) => this.changeSlide(next)
