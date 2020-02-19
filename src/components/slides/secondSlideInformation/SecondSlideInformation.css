@@ -1,27 +1,34 @@
+.imgStyle {
+  width: 900px;
+  height: 700px;
+  margin-right: 10%;
+  margin-left: 5%;
+  float: left;
+}
+
+.creditStyle {
+  position: absolute;
+  margin-left: 90%;
+  width: 150%;
+  height: 90%;
+  margin-top: 140%;
+  background-color: white;
+}
+
+.captionText {
+  font-size: 31px;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+}
 .textStyle {
   width: 90%;
   height: 70%;
-  text-align: center;
-  font-size: 28px;
+  text-align: left;
+  font-size: 27px;
   color: black;
   overflow-wrap: break-word;
   margin-right: 5%;
   margin-left: 5%;
-}
-
-.imgStyle {
-  width: 800px;
-  height: 650px;
-  margin-right: 5%;
-  margin-left: 5%;
-  float: left;
-  border-radius: 20px;
-  margin-bottom: 10%;
-}
-
-.caption {
-  text-align: center;
-  margin-left: 35%;
-  width: 150%;
-  height: 20%;
+  font-weight: normal;
 }
