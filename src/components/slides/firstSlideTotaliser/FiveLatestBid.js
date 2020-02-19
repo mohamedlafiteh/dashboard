@@ -23,11 +23,11 @@ export class FiveLatestBid extends Component {
   getFiveLatest = () => {
     return this.props.lots
       .filter(function(el) {
-        return el.data().lastBidTime != null;
+        return el.lastBidTime != null;
       })
       .sort(function(o1, o2) {
-        let a = getDateFromSeconds(o1.data().lastBidTime);
-        let b = getDateFromSeconds(o2.data().lastBidTime);
+        let a = getDateFromSeconds(o1.lastBidTime);
+        let b = getDateFromSeconds(o2.lastBidTime);
         return a > b ? -1 : a < b ? 1 : 0;
       })
       .slice(0, 5);
@@ -36,7 +36,7 @@ export class FiveLatestBid extends Component {
   getImageUrl = lot => {
     let imageUrl = this.state.imageDictionary[lot.id];
     if (!imageUrl) {
-      getImageForLot(lot.id, lot.data().image)
+      getImageForLot(lot.id, lot.image)
         .getDownloadURL()
         .then(url => {
           this.setState(state => ({

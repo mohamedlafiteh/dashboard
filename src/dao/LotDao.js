@@ -27,4 +27,7 @@ export function getImageForCountry(countryID) {
     return storage.ref().child('images/countries/' + countryID + '.jpg')
 }
 
+export function getAllUsers(){
+    return db.collection("users");
+}
 
