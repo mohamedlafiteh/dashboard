@@ -9,7 +9,7 @@ export class AuctionWinnersPage extends Component {
     render() {
         return (
             <div >
-                <WinnerTable data={this.props.data} />
+                <WinnerTable lots={this.props.lots} />
             </div>
         );
     }
