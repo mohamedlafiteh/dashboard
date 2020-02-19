@@ -1,39 +1,54 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import { flexbox } from "@material-ui/system";
-import imgBackground from "./water3.jpg";
+import image from "../../../images/image.png";
+import "./ThirdSlidePlaceholder.css";
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: flexbox
-  },
-  media: {
-    height: 650
+class ThirdSlidePlaceholder extends React.Component {
+  getBidForTable = (tableNumber, bidArray) => {
+    if (bidArray[tableNumber]) {
+      return bidArray[tableNumber].bid;
+    }
+    return 0;
+  };
+
+  loopArray = () => {
+    let tables = [];
+    this.props.lots.forEach(el => {
+      let currentBid = el.data().currentBid || 0;
+      let tableBid = this.getBidForTable(el.data().currentBidderTable, tables);
+      let item = {
+        table: el.data().currentBidderTable,
+        bid: currentBid + tableBid
+      };
+      tables[el.data().currentBidderTable] = item;
+    });
+    return tables.sort((a, b) => b.bid - a.bid);
+  };
+
+  render() {
+    let allTableTotals = this.loopArray();
+
+    return (
+      <div className='main'>
+        <div className='titleContainer'>
+          <h1 className='title'>
+            Is your table one of the top 10 largest winning bidders?
+          </h1>
+        </div>
+
+        <div id='images'>
+          {allTableTotals.map((item, index) => (
+            <div key={index}>
+              <img src={image} className='pic' />
+              <div id='text'> £{item.bid}</div>
+              <div>
+                <div className='table'> {item.table}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   }
-});
-
-export default function ThirdSlidePlaceholder() {
-  const classes = useStyles();
-
-  return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={imgBackground}
-          title='Contemplative Reptile'
-        />
-        <CardContent>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            Hello From Slide Three Placeholder
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  );
 }
+
+export default ThirdSlidePlaceholder;

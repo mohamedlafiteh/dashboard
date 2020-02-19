@@ -1,12 +1,11 @@
 import React from "react";
+import LotRetrievalComponent from "./lotProcessor/LotRetrievalComponent";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
 import Home from "./pages/Home";
 import AuctionWinnersPage from "./pages/AuctionWinnersPage/AuctionWinners"
 import NotFound from "./pages/NotFound"
-
-//import Button from "@material-ui/core/Button";
 
 import "./App.css";
 
@@ -21,6 +20,9 @@ class App extends React.Component {
             <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>
+        <Header />
+        <LotRetrievalComponent />
+        <Footer />
       </div>
     );
   }
