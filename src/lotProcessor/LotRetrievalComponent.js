@@ -2,6 +2,8 @@ import React from "react";
 import { getLots, getUserById } from "../dao/LotDao";
 import { getAllUsers } from "../dao/LotDao";
 import { processChange } from "./ChangeProcessor";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import FirstSlideTotaliser from ".././components/slides/firstSlideTotaliser/FirstSlideTotaliser";
 import ThirdSlidePlaceholder from ".././components/slides/thirdSlidePlaceholder/ThirdSlidePlaceholder";
 import SecondSlide from ".././components/slides/secondSlideInformation/SecondSlide";
@@ -15,6 +17,7 @@ class LotRetrievalComponent extends React.Component {
     super(props);
     this.state = {
       lots: [],
+      users: [],
       currentPicture: 0
     };
 
@@ -68,6 +71,7 @@ class LotRetrievalComponent extends React.Component {
     }
   }
 
+
   render() {
     const settings = {
       infinite: true,
@@ -79,11 +83,15 @@ class LotRetrievalComponent extends React.Component {
       beforeChange: (current, next) => this.changeSlide(next)
     };
     return (
+      <div>
+      <Header />
       <Slider {...settings}>
-        <FirstSlideTotaliser lots={this.state.lots} />
+        <FirstSlideTotaliser lots={this.state.lots}/>
         <SecondSlide current={this.state.currentPicture} />
         <ThirdSlidePlaceholder lots={this.state.lots} />
       </Slider>
+      <Footer/>
+      </div>
     );
   }
 }

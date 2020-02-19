@@ -25,6 +25,7 @@ function setChangeUser (change, s){
     }
     return change;
 }
+
 function addLot(change, s) {
 
     s.setState(state => {

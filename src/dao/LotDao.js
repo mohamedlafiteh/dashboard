@@ -30,3 +30,4 @@ export function getImageForCountry(countryID) {
 export function getAllUsers(){
     return db.collection("users");
 }
+
