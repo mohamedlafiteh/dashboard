@@ -19,13 +19,11 @@ class WinnerTable extends Component {
     }
 
     renderTableData() {
-
-        // console.log("can i get lots in pros here " , this.props.lots);
         return this.props.lots.map((item, index) => {
             const { id, lotName, currentBidderName, image, currentBidderEmail } = item
             return (
                 <tr key={id}>
-                    <td >{image}</td>
+                    <td ><img src={this.getImageUrl(id,image)} className='pic'/></td>
                     <td>{lotName}</td>
                     <td>{currentBidderName}</td>
                     <td>{currentBidderEmail}</td>
@@ -34,20 +32,19 @@ class WinnerTable extends Component {
         }).slice(0,10)
     }
 
-    getImageUrl = lot => {
-        let imageUrl = this.state.imageDictionary[lot.id];
+    getImageUrl = (id, image) => {
+        let imageUrl = this.state.imageDictionary[id];
         if (!imageUrl) {
-            getImageForLot(lot.id, lot.image)
+            getImageForLot(id, image)
                 .getDownloadURL()
                 .then(url => {
                     this.setState(state => ({
                         imageDictionary: {
                             ...state.imageDictionary,
-                            [lot.id]: url
+                            [id]: url
                         }
                     }));
                 });
-                // console.log("hello Image", this.props.imageDictionary[lot.id])
         }
         return imageUrl;
     };

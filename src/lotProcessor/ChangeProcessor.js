@@ -1,5 +1,6 @@
 export function processChange(change, s) {
     let changeData = setChangeUser(change.doc.data(),s);
+    changeData.id = change.doc.id;
     switch (change.type) {
         case 'added':
             addLot(changeData, s);
@@ -27,7 +28,9 @@ function setChangeUser (change, s){
 }
 
 function addLot(change, s) {
-
+    console.log(change);
+    console.log(change.id);
+    console.log('have i messed it up ?')
     s.setState(state => {
         const lots = state.lots.concat(change);
         return {

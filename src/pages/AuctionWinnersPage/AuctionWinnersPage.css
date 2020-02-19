@@ -37,8 +37,8 @@
   width: auto;
   height: auto;
   position: relative;
-  left: 100px;
-  top: 200px;
+  left: 20%;
+  top: '30%';
   color: white;
   z-index: 2;
 }
@@ -80,4 +80,9 @@ th, td {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   z-index: 6;
+}
+
+.pic {
+  height: 100%;
+  width: 220%;
 }
