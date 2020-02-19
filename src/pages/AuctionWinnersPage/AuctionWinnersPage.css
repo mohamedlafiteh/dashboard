@@ -1,5 +1,5 @@
 .screen {
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 100vw;
@@ -19,15 +19,31 @@
   height: 100%;
   top: 0;
   bottom: 0;
+  z-index: 0;
+}
+
+.listText {
+  font-size: 400%;
+  left: 100px;
+  top: 0px;
+  position: absolute;
+  width: 300px;
+  height: 80px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 1;
 }
 
 .list {
-  width: 400px;
-  height: 400px;
+  width: auto;
+  height: auto;
   position: relative;
-  left: 200px;
+  left: 100px;
   top: 200px;
+  color: white;
+  z-index: 2;
 }
+
 table {
   border: 1px solid white;
   border-collapse: collapse;
@@ -35,8 +51,7 @@ table {
   height: 20vh;
 }
 
-th,
-td {
+th, td {
   border: 1px solid white;
   width: 3vw;
   height: 3vh;
@@ -59,4 +74,16 @@ td {
   z-index: 4; */
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.footerText {
+  font-size: 250%;
+  left: 100px;
+  top: 900px;
+  position: absolute;
+  width: auto;
+  height: 80px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 6;
 }

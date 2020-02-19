@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-
-
 import { getImageForLot } from "../../dao/LotDao";
 
 
 class WinnerTable extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...this.state, 
+            final: 0,
+            imageDictionary: []
+        }
+    }
 
     renderTableHeader() {
-        let header = Object.keys(this.props.data[0])
+        let header = ["Lot image", "Lot name", "Winning forename" , "Winning surname"]   //Object.keys(this.props.data[0])
         return header.map((key, index) => {
             return <th key={index}>{key.toUpperCase()}</th>
         })
@@ -48,7 +53,7 @@ class WinnerTable extends Component {
 
     render() {
         return (
-            <div>
+            <div className="list">
                 <table>
                     <tbody>
                         <tr>{this.renderTableHeader()}</tr>
