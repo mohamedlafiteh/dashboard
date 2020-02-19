@@ -37,8 +37,8 @@
   width: auto;
   height: auto;
   position: relative;
-  left: 20%;
-  top: '30%';
+  left: 100px;
+  top: 200px;
   color: white;
   z-index: 2;
 }

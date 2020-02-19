@@ -17,6 +17,7 @@ export function processChange(change, s) {
 }
 function setChangeUser (change, s){
     const currentUser = s.state.users.filter(user => user.bidderCode === change.currentBidder);
+    console.log('currentUser '+currentUser.id);
     if(currentUser!=null && currentUser.length > 0){
         let username = currentUser[0].forename; 
         if(currentUser[0].surname!= null && currentUser[0].surname!= undefined){
@@ -28,9 +29,6 @@ function setChangeUser (change, s){
 }
 
 function addLot(change, s) {
-    console.log(change);
-    console.log(change.id);
-    console.log('have i messed it up ?')
     s.setState(state => {
         const lots = state.lots.concat(change);
         return {
