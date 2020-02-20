@@ -26,9 +26,9 @@ class Totaliser extends Component {
 
   getTotal = () => {
     let total = this.props.lots.reduce((total, lot) => {
-      let bid = lot.data().currentBid;
+      let bid = lot.currentBid;
       if (typeof bid === "number") {
-        return total + parseInt(lot.data().currentBid);
+        return total + parseInt(lot.currentBid);
       } else {
         return total;
       }
