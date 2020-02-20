@@ -1,6 +1,5 @@
 export function processChange(change, s) {
     let changeData = change.doc.data();
-    changeData.currentBidderName = setChangeUser(changeData, s);
     changeData.id = change.doc.id;
     switch (change.type) {
         case 'added':
@@ -15,17 +14,6 @@ export function processChange(change, s) {
         default:
             return;
     }
-}
-function setChangeUser (change, s){
-    let username = '';
-    const currentUser = s.state.users.filter(user => user.bidderCode === change.currentBidder);
-    if(currentUser!=null && currentUser.length > 0){
-        username = currentUser[0].forename; 
-        if(currentUser[0].surname!= null && currentUser[0].surname!= undefined){
-            username = username + ' '+ currentUser[0].surname;
-        }
-    }
-    return username;
 }
 
 function addLot(change, s) {
