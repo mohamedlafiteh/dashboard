@@ -31,3 +31,7 @@ export function getAllUsers(){
     return db.collection("users");
 }
 
+export function getCurrentBidderFullName(bidderCode) {
+    db.collection("users").where("bidderCode", "==", bidderCode).get();
+}
+
