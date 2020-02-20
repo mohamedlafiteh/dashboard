@@ -29,22 +29,24 @@ class ThirdSlidePlaceholder extends React.Component {
 
     return (
       <div className='main'>
-        <div className='titleContainer'>
-          <h1 className='title'>
-            Is your table one of the top 10 largest winning bidders?
-          </h1>
-        </div>
+        <div className='imageContainer'>
+          <div className='titleContainer'>
+            <h1 className='title'>
+              Is your table one of the top 10 largest winning bidders?
+            </h1>
+          </div>
 
-        <div id='images'>
-          {allTableTotals.map((item, index) => (
-            <div key={index}>
-              <img src={image} className='pic' />
-              <div id='text'> £{item.bid}</div>
-              <div>
-                <div className='table'> {item.table}</div>
+          <div id='images'>
+            {allTableTotals.map((item, index) => (
+              <div key={index}>
+                <img src={image} className='pic' />
+                <div id='text'> £{item.bid}</div>
+                <div>
+                  <div className='table'> {item.table}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );
