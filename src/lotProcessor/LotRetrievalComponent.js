@@ -52,11 +52,11 @@ class LotRetrievalComponent extends React.Component {
   }
 
   getAllUsers() {
-    this.state.users = []
-     getAllUsers().onSnapshot(snapshot =>{
+    this.state.users = [];
+    getAllUsers().onSnapshot(snapshot => {
       snapshot.forEach(doc => {
         this.state.users.push(doc.data());
-      })
+      });
     });
   }
 
@@ -65,17 +65,16 @@ class LotRetrievalComponent extends React.Component {
       newLots.onSnapshot(snapshot => {
         let changes = snapshot.docChanges();
         changes.forEach(change => {
-            processChange(change, t);
+          processChange(change, t);
         });
       });
     }
   }
 
-
   render() {
     const settings = {
       infinite: true,
-      autoplay: true,
+      //autoplay: true,
       autoplaySpeed: 25000,
       speed: 1000,
       slidesToShow: 1,
@@ -84,13 +83,13 @@ class LotRetrievalComponent extends React.Component {
     };
     return (
       <div>
-      <Header />
-      <Slider {...settings}>
-        <FirstSlideTotaliser lots={this.state.lots}/>
-        <SecondSlide current={this.state.currentPicture} />
-        <ThirdSlidePlaceholder lots={this.state.lots} />
-      </Slider>
-      <Footer/>
+        <Header />
+        <Slider {...settings}>
+          <ThirdSlidePlaceholder lots={this.state.lots} />
+          <FirstSlideTotaliser lots={this.state.lots} />
+          <SecondSlide current={this.state.currentPicture} />
+        </Slider>
+        <Footer />
       </div>
     );
   }
