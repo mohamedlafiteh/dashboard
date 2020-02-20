@@ -9,6 +9,11 @@
   grid-gap: 50px 200px;
 }
 
+.main {
+  margin-top: 50px;
+  background-image: url(../../.././images/slideThreebg.png);
+}
+
 #text {
   font-size: 32px;
   position: relative;
@@ -40,12 +45,11 @@
 }
 
 .table {
-  font-size: 40px;
+  font-size: 30px;
   position: relative;
-  top: -130px;
+  top: -111px;
   margin-left: 78px;
   width: 50%;
   padding: 3px;
   color: white;
-  background-color: blue;
 }
