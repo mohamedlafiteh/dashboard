@@ -1,5 +1,5 @@
 import React from "react";
-import LotRetrievalComponent from "./lotProcessor/LotRetrievalComponent";
+import MainPage from "./components/MainPage";
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AuctionWinners from "./pages/AuctionWinnersPage/AuctionWinners"
@@ -13,7 +13,7 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={LotRetrievalComponent} />
+            <Route exact path="/" component={MainPage} />
             <Route path="/finalPage" component={AuctionWinners} />
             <Route path="*" component={NotFound} />
           </Switch>
