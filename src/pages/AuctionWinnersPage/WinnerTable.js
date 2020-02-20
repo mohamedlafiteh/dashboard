@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getImageForLot } from "../../dao/LotDao";
-
+import { getCurrentBidderFullName} from "../../dao/LotDao";
 
 class WinnerTable extends Component {
     constructor(props) {
@@ -20,12 +20,12 @@ class WinnerTable extends Component {
 
     renderTableData() {
         return this.props.lots.map((item, index) => {
-            const { id, lotName, currentBidderName, image, currentBidderEmail } = item
+            const { id, lotName, currentBidder, image, currentBidderEmail } = item
             return (
                 <tr key={id}>
                     <td ><img src={this.getImageUrl(id,image)} className='pic'/></td>
                     <td>{lotName}</td>
-                    <td>{currentBidderName}</td>
+                    <td>{this.getBidderName(currentBidder, this.props.users)}</td>
                     <td>{currentBidderEmail}</td>
                 </tr>
             )
@@ -49,7 +49,17 @@ class WinnerTable extends Component {
         return imageUrl;
     };
 
-
+    getBidderName (bidderCode, users){
+        let username = '';
+        const currentUser = users.filter(user => user.bidderCode === bidderCode);
+        if(currentUser!=null && currentUser.length > 0){
+            username = currentUser[0].forename; 
+            if(currentUser[0].surname!= null && currentUser[0].surname!= undefined){
+                username = username + ' '+ currentUser[0].surname;
+            }
+        }
+        return username;
+    }
     render() {
         return (
             <div className="list">
