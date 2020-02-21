@@ -52,8 +52,8 @@ class MainPage extends React.Component {
       <div>
         <Header />
         <Slider {...settings}>
-          <FirstSlideTotaliser lots={this.state.lots} />
           <SecondSlide current={this.state.currentPicture} />
+          <FirstSlideTotaliser lots={this.state.lots} />
           <ThirdSlidePlaceholder lots={this.state.lots} />
         </Slider>
         <Footer />
