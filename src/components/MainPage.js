@@ -41,7 +41,7 @@ class MainPage extends React.Component {
   render() {
     const settings = {
       infinite: true,
-      //autoplay: true,
+      autoplay: true,
       autoplaySpeed: 25000,
       speed: 1000,
       slidesToShow: 1,
@@ -52,8 +52,8 @@ class MainPage extends React.Component {
       <div>
         <Header />
         <Slider {...settings}>
-          <SecondSlide current={this.state.currentPicture} />
           <FirstSlideTotaliser lots={this.state.lots} />
+          <SecondSlide current={this.state.currentPicture} />
           <ThirdSlidePlaceholder lots={this.state.lots} />
         </Slider>
         <Footer />
