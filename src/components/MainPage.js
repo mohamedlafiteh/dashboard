@@ -1,9 +1,8 @@
 import React from "react";
-import { getLots, getUserById } from "../dao/LotDao";
-import { getAllUsers } from "../dao/LotDao";
-import { processChange } from "./ChangeProcessor";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { getLots } from "../dao/LotDao";
+import { processChange } from "../lotProcessor/ChangeProcessor";
+import Header from "./Header";
+import Footer from "./Footer";
 import FirstSlideTotaliser from ".././components/slides/firstSlideTotaliser/FirstSlideTotaliser";
 import ThirdSlidePlaceholder from ".././components/slides/thirdSlidePlaceholder/ThirdSlidePlaceholder";
 import SecondSlide from ".././components/slides/secondSlideInformation/SecondSlide";
@@ -12,18 +11,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-class LotRetrievalComponent extends React.Component {
+class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       lots: [],
-      users: [],
       currentPicture: 0
     };
+  }
 
-    this.getAllLots = this.getAllLots.bind(this);
-    this.getAllUsers = this.getAllUsers.bind(this);
-    this.processLots = this.processLots.bind(this);
+  componentDidMount() {
+    getLots().onSnapshot(snapshot => {
+      snapshot.docChanges().forEach(change => {
+        processChange(change, this);
+      });
+    });
   }
 
   changeSlide = current => {
@@ -35,40 +37,6 @@ class LotRetrievalComponent extends React.Component {
       });
     }
   };
-
-  componentDidMount() {
-    this._isMounted = true;
-    this.getAllUsers();
-    this.getAllLots();
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-
-  getAllLots() {
-    let newLots = getLots();
-    this.processLots(newLots, this);
-  }
-
-  getAllUsers() {
-    getAllUsers().onSnapshot(snapshot => {
-      snapshot.forEach(doc => {
-        this.state.users.push(doc.data());
-      });
-    });
-  }
-
-  processLots(newLots, t) {
-    if (newLots !== undefined) {
-      newLots.onSnapshot(snapshot => {
-        let changes = snapshot.docChanges();
-        changes.forEach(change => {
-          processChange(change, t);
-        });
-      });
-    }
-  }
 
   render() {
     const settings = {
@@ -84,9 +52,9 @@ class LotRetrievalComponent extends React.Component {
       <div>
         <Header />
         <Slider {...settings}>
-          <ThirdSlidePlaceholder lots={this.state.lots} />
           <FirstSlideTotaliser lots={this.state.lots} />
           <SecondSlide current={this.state.currentPicture} />
+          <ThirdSlidePlaceholder lots={this.state.lots} />
         </Slider>
         <Footer />
       </div>
@@ -94,4 +62,4 @@ class LotRetrievalComponent extends React.Component {
   }
 }
 
-export default LotRetrievalComponent;
+export default MainPage;
