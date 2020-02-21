@@ -34,17 +34,26 @@ class WinnerTable extends Component {
 
     getImageUrl = (id, image) => {
         let imageUrl = this.state.imageDictionary[id];
-        if (!imageUrl) {
-            getImageForLot(id, image)
-                .getDownloadURL()
-                .then(url => {
-                    this.setState(state => ({
-                        imageDictionary: {
-                            ...state.imageDictionary,
-                            [id]: url
-                        }
-                    }));
-                });
+        if (imageUrl === undefined) {
+          getImageForLot(id, image)
+            .getDownloadURL()
+            .then(url => {
+              this.setState(state => ({
+                imageDictionary: {
+                  ...state.imageDictionary,
+                  [id]: url
+                }
+              }));
+            })
+            .catch(err => {
+              this.setState(state => ({
+                imageDictionary: {
+                  ...state.imageDictionary,
+                  [id]: ""
+                }
+              }));
+
+            });
         }
         return imageUrl;
     };
