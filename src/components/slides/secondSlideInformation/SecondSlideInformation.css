@@ -5,13 +5,19 @@
   margin-left: 5%;
   float: left;
 }
-
+.user {
+  text-align: right;
+  position: relative;
+  width: 450px;
+  height: 70px;
+  margin: 2em 0;
+}
 .creditStyle {
   position: absolute;
-  margin-left: 90%;
-  width: 150%;
-  height: 90%;
-  margin-top: 140%;
+  margin-left: 113%;
+  width: 89%;
+  height: 59%;
+  margin-top: 143%;
   background-color: white;
 }
 
