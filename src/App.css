@@ -22,11 +22,11 @@
 
 .footer-p1 {
   margin-left: 5%;
-  margin-top: 27px;
+  margin-top: 12px;
 }
 .footer-p2 {
   margin-left: 20%;
-  margin-top: 27px;
+  margin-top: 12px;
 }
 
 .water-aid-logo {
@@ -34,8 +34,9 @@
 }
 .capgemini-logo {
   height: 100%;
+  margin-top: -15px;
 }
 .cyf-logo {
   height: 100%;
-  margin-top: 18px;
+  margin-top: 5px;
 }
