@@ -41,9 +41,9 @@ class MainPage extends React.Component {
     }
   };
 
-  onNewTotal = (total) => {
+  onNewTotal = total => {
     if (total >= this.state.milestone) {
-      let newMilestone =  Math.round((this.state.total + 500)/1000)*1000;
+      let newMilestone = Math.round((this.state.total + 500) / 1000) * 1000;
       this.setState({ showingConfetti: true, milestone: newMilestone });
       setTimeout(() => {
         this.setState({ showingConfetti: false });
@@ -64,16 +64,19 @@ class MainPage extends React.Component {
     return (
       <div>
         {this.state.showingConfetti && (
-            <Confetti
-              className="confettiBox"
-              numberOfPieces='600'
-              tweenDuration='5000'
-              initialVelocityY='50'
-            />
-          )}
+          <Confetti
+            className='confettiBox'
+            numberOfPieces='600'
+            tweenDuration='5000'
+            initialVelocityY='50'
+          />
+        )}
         <Header />
         <Slider {...settings}>
-          <FirstSlideTotaliser lots={this.state.lots}  onNewTotal={this.onNewTotal} />
+          <FirstSlideTotaliser
+            lots={this.state.lots}
+            onNewTotal={this.onNewTotal}
+          />
           <SecondSlide current={this.state.currentPicture} />
           <ThirdSlidePlaceholder lots={this.state.lots} />
         </Slider>

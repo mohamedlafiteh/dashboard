@@ -42,7 +42,7 @@ class ThirdSlidePlaceholder extends React.Component {
                 <img src={image} className='pic' />
                 <div id='text'> £{item.bid}</div>
                 <div>
-                  <div className='table'> {item.table}</div>
+                  <div className='table'>Table: {item.table}</div>
                 </div>
               </div>
             ))}
