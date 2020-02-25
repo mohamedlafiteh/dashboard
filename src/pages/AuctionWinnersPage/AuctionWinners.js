@@ -32,7 +32,7 @@ export class AuctionWinners extends React.Component {
       return (
           <div className="screen">
               <div className="background" style={{ display: "flex", flexDirection: "row" }}>
-                  <h2 className="listText"> Congratulations! </h2>
+                  <h2 className="headerText"> Congratulations! </h2>
                   <div>
                       <AuctionWinnersPage lots={this.state.lots} users={this.state.users} />
                   </div>
