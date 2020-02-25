@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Totaliser.css";
-import Confetti from "react-confetti";
 import { Spring } from "react-spring/renderprops";
 
 import waterpump1 from "../../../images/Waterpump1.png";
@@ -11,8 +10,6 @@ class Totaliser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      milestone: 0,
-      showingConfetti: false,
       total: 0
     };
   }
@@ -20,8 +17,9 @@ class Totaliser extends Component {
   componentDidUpdate() {
     const newTotal = this.getTotal();
     if (newTotal !== this.state.total) {
-      this.setState({ total: newTotal }, this.onNewTotal);
+      this.setState({ total: newTotal },  () => this.props.onNewTotal(this.state.total));
     }
+    
   }
 
   getTotal = () => {
@@ -37,28 +35,10 @@ class Totaliser extends Component {
     return total;
   };
 
-  onNewTotal = () => {
-    if (this.state.total >= this.state.milestone) {
-      let newMilestone =  Math.round((this.state.total + 500)/1000)*1000;
-      this.setState({ showingConfetti: true, milestone: newMilestone });
-      setTimeout(() => {
-        this.setState({ showingConfetti: false });
-      }, 14000);
-    }
-  };
-
   render() {
     return (
       <div style={{ display: "flex" }} className='Background'>
         <div className='containerTotaliser'>
-          {this.state.showingConfetti && (
-            <Confetti
-              className="confettiBox"
-              numberOfPieces='600'
-              tweenDuration='5000'
-              initialVelocityY='50'
-            />
-          )}
           <div>
             <h1 className='text'> Total raised so far: </h1>
             <img src={waterpump1} alt='water pump' className='water_pump' />
