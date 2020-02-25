@@ -31,9 +31,9 @@ class Countdown extends Component {
         }
 
         this.setState({
-          diffInHours: "00",
-          diffInMins: "00",
-          diffInSecs: "00"
+          diffInHours: 0,
+          diffInMins: 0,
+          diffInSecs: 0
         });
 
         this.setState({ finished: true });
