@@ -43,9 +43,7 @@ class Countdown extends Component {
 
       this.setState({ finished: false });
       let i = endTime.getTime() - new Date().getTime();
-
       let delta = Math.abs(i) / 1000;
-
       let days = Math.floor(delta / 86400);
       delta -= days * 86400;
       let hours = Math.floor(delta / 3600);
