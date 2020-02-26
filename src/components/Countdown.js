@@ -6,9 +6,9 @@ class Countdown extends Component {
     super(props);
 
     this.state = {
-      diffInHours: 0,
-      diffInMins: 0,
-      diffInSecs: 0,
+      diffInHours: "00",
+      diffInMins: "00",
+      diffInSecs: "00",
       finished: false
     };
   }
@@ -42,10 +42,10 @@ class Countdown extends Component {
       }
 
       this.setState({ finished: false });
-
       let i = endTime.getTime() - new Date().getTime();
       let delta = Math.abs(i) / 1000;
-
+      let days = Math.floor(delta / 86400);
+      delta -= days * 86400;
       let hours = Math.floor(delta / 3600);
       delta -= hours * 3600;
       let minutes = Math.floor(delta / 60) % 60;

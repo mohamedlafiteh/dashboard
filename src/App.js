@@ -14,7 +14,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={MainPage} />
-            <Route path="/finalPage" component={AuctionWinners} />
+            <Route path="/winners" component={AuctionWinners} />
             <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>
