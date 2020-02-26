@@ -1,7 +1,7 @@
 .imgStyle {
   width: 900px;
   height: 700px;
-  margin-right: 10%;
+  margin-right: 8%;
   margin-left: 5%;
   float: left;
   margin-top: 9px;
@@ -11,7 +11,7 @@
   position: relative;
   width: 450px;
   height: 70px;
-  margin: 2em 0;
+  margin: 6em 0;
 }
 .creditStyle {
   position: absolute;
@@ -23,10 +23,12 @@
 }
 
 .captionText {
+  margin-top: -162px;
   font-size: 31px;
   font-weight: bold;
   color: black;
   text-align: left;
+  margin-right: 40px;
 }
 .textStyle {
   width: 90%;
@@ -38,4 +40,5 @@
   margin-right: 5%;
   margin-left: 5%;
   font-weight: normal;
+  margin-top: 50px;
 }

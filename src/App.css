@@ -17,8 +17,9 @@
 
 .footer-container {
   display: flex;
-  height: 8vh;
+  height: 60px;
   font-size: 2em;
+  margin-top: -14px;
 }
 
 .footer-p1 {
@@ -35,9 +36,9 @@
 }
 .capgemini-logo {
   height: 100%;
-  margin-top: -15px;
+  margin-top: 3px;
 }
 .cyf-logo {
   height: 100%;
-  margin-top: 5px;
+  margin-top: 13px;
 }
