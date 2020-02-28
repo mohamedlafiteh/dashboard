@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { getImageForLot } from "../../dao/LotDao";
 import { getCurrentBidderFullName } from "../../dao/LotDao";
@@ -18,31 +19,33 @@ class WinnerTable extends Component {
         }
     }
 
-    renderTableHeader() {
-        let header = ["Lot image", "Lot name", "Winners Name"]  
-        return header.map((key, index) => {
-            return <th key={index}>{key.toUpperCase()}</th>
-        })
-    }
+    // renderTableHeader() {
+    // return <thead>
+    // <tr>
+    // <th colSpan="2" style={{ "background-color": "black" }}> Lot </th>
+    // <th colSpan="2" style={{ "background-color": "black" }}> Highest bidder </th>
+    // </tr>
+    // </thead>
+    // }
 
     updateTableData(counter) {
         this.setState({
             tableData: this.props.lots.map((item, index) => {
                 const { id, lotName, currentBidder, image } = item
                 return (
-                    <tr key={id}>
+                    <tr className="lotsText" key={id}>
                         <td ><img src={this.getImageUrl(id, image)} className='pic' /></td>
-                        <td>{lotName}</td>
+                        <td style={{ "text-align": "left", "padding": "10px" }} >{lotName}</td>
                         <td>{this.getBidderName(currentBidder, this.props.users)}</td>
                     </tr>
                 )
-            }).slice(counter * 10, 10 + counter * 10)
+            }).slice(counter * 8, 8 + counter * 8)
         });
     }
 
     renderTableData() {
         let counter = 0;
-        let numberOfSlice = Math.ceil(this.props.lots.length / 10);
+        let numberOfSlice = Math.ceil(this.props.lots.length / 8);
         this.updateTableData(counter)
         setInterval(() => {
             counter++
@@ -87,12 +90,18 @@ class WinnerTable extends Component {
         }
         return username;
     }
+
     render() {
         return (
             <div className="list">
                 <table>
+                    <thead>
+                        <tr>
+                            <th colSpan="2" style={{ "background-color": "black" }}> Lot </th>
+                            <th colSpan="2" style={{ "background-color": "black" }}> Highest bidder </th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr>{this.renderTableHeader()}</tr>
                         {this.state.tableData}
                     </tbody>
                 </table>
@@ -102,7 +111,5 @@ class WinnerTable extends Component {
 
 }
 
-
 export default WinnerTable;
-
 
