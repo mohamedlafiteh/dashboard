@@ -17,9 +17,10 @@ class Totaliser extends Component {
   componentDidUpdate() {
     const newTotal = this.getTotal();
     if (newTotal !== this.state.total) {
-      this.setState({ total: newTotal },  () => this.props.onNewTotal(this.state.total));
+      this.setState({ total: newTotal }, () =>
+        this.props.onNewTotal(this.state.total)
+      );
     }
-    
   }
 
   getTotal = () => {
@@ -37,11 +38,11 @@ class Totaliser extends Component {
 
   render() {
     return (
-      <div style={{ display: "flex" }} className='Background'>
-        <div className='containerTotaliser'>
+      <div style={{ display: "flex" }} className="Background">
+        <div className="containerTotaliser">
           <div>
-            <h1 className='text'> Total raised so far: </h1>
-            <img src={waterpump1} alt='water pump' className='water_pump' />
+            <h2 className="text"> Total raised so far: </h2>
+            <img src={waterpump1} alt="water pump" className="water_pump" />
             <Spring
               config={{ duration: 1000 }}
               from={{ top: "60%" }}
@@ -52,9 +53,9 @@ class Totaliser extends Component {
               {props => (
                 <img
                   style={{ top: props.top }}
-                  className='droplet'
+                  className="droplet"
                   src={droplet}
-                  alt='Droplet'
+                  alt="Droplet"
                 />
               )}
             </Spring>
@@ -62,12 +63,12 @@ class Totaliser extends Component {
           <div>
             <Spring from={{ number: 0 }} to={{ number: this.state.total }}>
               {props => (
-                <h1 className='totalNumber'>£{props.number.toFixed()}</h1>
+                <h1 className="totalNumber">£{props.number.toFixed()}</h1>
               )}
             </Spring>
           </div>
           <div>
-            <img src={Jerrycan} className='jerrycan' alt='Jerrycan' />
+            <img src={Jerrycan} className="jerrycan" alt="Jerrycan" />
           </div>
         </div>
       </div>
