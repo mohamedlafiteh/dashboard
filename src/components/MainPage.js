@@ -54,7 +54,7 @@ class MainPage extends React.Component {
   render() {
     const settings = {
       infinite: true,
-      autoplay: true,
+      //  autoplay: true,
       autoplaySpeed: 25000,
       speed: 1000,
       slidesToShow: 1,
