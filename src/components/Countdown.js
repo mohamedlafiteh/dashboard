@@ -62,16 +62,16 @@ class Countdown extends Component {
 
   render() {
     return (
-      <div class="parent">
-        <div class="div1"> Auction Ends In</div>
-        <div class="div2"> {this.state.diffInHours}</div>
-        <div class="div3">: </div>
-        <div class="div4"> {this.state.diffInMins}</div>
-        <div class="div5"> :</div>
-        <div class="div6"> {this.state.diffInSecs} </div>
-        <div class="div7">Hours </div>
-        <div class="div8">Mins </div>
-        <div class="div9">Secs </div>
+      <div className="parent">
+        <div className="div1"> Auction Ends In</div>
+        <div className="div2"> {this.state.diffInHours}</div>
+        <div className="div3">: </div>
+        <div className="div4"> {this.state.diffInMins}</div>
+        <div className="div5"> :</div>
+        <div className="div6"> {this.state.diffInSecs} </div>
+        <div className="div7">Hours </div>
+        <div className="div8">Mins </div>
+        <div className="div9">Secs </div>
       </div>
     );
   }

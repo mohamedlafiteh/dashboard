@@ -35,15 +35,13 @@
   top: 79.5%;
   z-index: 3;
   transform: rotate(11deg);
-  font-family: Arial, Helvetica, sans-serif;
 }
 .text {
-  font-size: 240%;
+  font-size: 4vh;
   position: absolute;
   left: 48%;
   top: 30%;
   z-index: 4;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .confettiBox {

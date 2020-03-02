@@ -5,12 +5,9 @@ import "./AuctionWinnersPage.css";
 
 export class AuctionWinnersPage extends Component {
 
-
     render() {
         return (
-            <div >
-                <WinnerTable lots={this.props.lots} users = {this.props.users} />
-            </div>
+            <WinnerTable lots={this.props.lots} users={this.props.users} />
         );
     }
 

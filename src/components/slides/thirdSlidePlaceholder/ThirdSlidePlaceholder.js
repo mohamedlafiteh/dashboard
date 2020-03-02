@@ -32,7 +32,8 @@ class ThirdSlidePlaceholder extends React.Component {
         <div className='imageContainer'>
           <div className='titleContainer'>
             <h1 className='title'>
-              Is your table one of the top 10 largest winning bidders?
+              Is someone at your table making a big donation to WaterAid right
+              now?
             </h1>
           </div>
 

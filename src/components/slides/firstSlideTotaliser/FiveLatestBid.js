@@ -53,7 +53,6 @@ export class FiveLatestBid extends Component {
               [lot.id]: ""
             }
           }));
-
         });
     }
     return imageUrl;
@@ -63,7 +62,7 @@ export class FiveLatestBid extends Component {
     const fiveLatest = this.getFiveLatest();
     return (
       <div className="fiveLatestBids-component">
-        <h2 className="titleFiveLatestBids">Top 5 Most Recent Bids:</h2>
+        <h2 className="titleFiveLatestBids">Top 5 most recent bids:</h2>
         <div className="bids-wrapper">
           {fiveLatest.map((lot, index) => {
             let imageUrl = this.getImageUrl(lot);
