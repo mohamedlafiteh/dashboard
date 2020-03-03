@@ -40,7 +40,7 @@ class ThirdSlidePlaceholder extends React.Component {
           <div id='images'>
             {allTableTotals.map((item, index) => (
               <div key={index}>
-                <img src={image} className='pic' />
+                <img src={image} className='tablePic' />
                 <div id='text'> £{item.bid}</div>
                 <div>
                   <div className='table'>Table: {item.table}</div>
