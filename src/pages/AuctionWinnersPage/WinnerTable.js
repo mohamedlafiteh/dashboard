@@ -42,7 +42,7 @@ class WinnerTable extends Component {
         setInterval(() => {
             counter++
             this.updateTableData(counter % numberOfSlice)
-        }, 5000);
+        }, 10000);
     }
 
     getImageUrl = (id, image) => {
