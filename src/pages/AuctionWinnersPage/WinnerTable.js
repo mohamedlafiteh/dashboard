@@ -27,7 +27,7 @@ class WinnerTable extends Component {
                     <tr className="lotsText" key={id}>
                         <td ><img src={this.getImageUrl(id, image)} className='pic' /></td>
                         <td style={{ "textAlign": "left", "padding": "10px" }} >{lotName}</td>
-                        <td>{currentBid}</td>
+                        <td> £{currentBid}</td>
                         <td>{this.getBidderName(currentBidder, this.props.users)}</td>
                     </tr>
                 )
@@ -90,7 +90,7 @@ class WinnerTable extends Component {
                     <thead>
                         <tr>
                             <th colSpan="2" style={{ "backgroundColor": "black" }}> Lot </th>
-                            <th colSpan="1" style={{ "backgroundColor": "black" }}> Bid value </th>
+                            <th colSpan="1" style={{ "backgroundColor": "black" }}> Bid value (£) </th>
                             <th colSpan="1" style={{ "backgroundColor": "black" }}> Highest bidder </th>
                         </tr>
                     </thead>
