@@ -19,38 +19,30 @@ class WinnerTable extends Component {
         }
     }
 
-    // renderTableHeader() {
-    // return <thead>
-    // <tr>
-    // <th colSpan="2" style={{ "background-color": "black" }}> Lot </th>
-    // <th colSpan="2" style={{ "background-color": "black" }}> Highest bidder </th>
-    // </tr>
-    // </thead>
-    // }
-
     updateTableData(counter) {
         this.setState({
             tableData: this.props.lots.map((item, index) => {
-                const { id, lotName, currentBidder, image } = item
+                const { id, lotName, currentBidder, image , currentBid} = item
                 return (
                     <tr className="lotsText" key={id}>
                         <td ><img src={this.getImageUrl(id, image)} className='pic' /></td>
                         <td style={{ "text-align": "left", "padding": "10px" }} >{lotName}</td>
+                        <td>{currentBid}</td>
                         <td>{this.getBidderName(currentBidder, this.props.users)}</td>
                     </tr>
                 )
-            }).slice(counter * 8, 8 + counter * 8)
+            }).slice(counter * 7, 7 + counter * 7)
         });
     }
 
     renderTableData() {
         let counter = 0;
-        let numberOfSlice = Math.ceil(this.props.lots.length / 8);
+        let numberOfSlice = Math.ceil(this.props.lots.length / 7);
         this.updateTableData(counter)
         setInterval(() => {
             counter++
             this.updateTableData(counter % numberOfSlice)
-        }, 10000);
+        }, 5000);
     }
 
     getImageUrl = (id, image) => {
@@ -98,7 +90,8 @@ class WinnerTable extends Component {
                     <thead>
                         <tr>
                             <th colSpan="2" style={{ "background-color": "black" }}> Lot </th>
-                            <th colSpan="2" style={{ "background-color": "black" }}> Highest bidder </th>
+                            <th colSpan="1" style={{ "background-color": "black" }}> Bid value </th>
+                            <th colSpan="1" style={{ "background-color": "black" }}> Highest bidder </th>
                         </tr>
                     </thead>
                     <tbody>
