@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .header-container {
@@ -11,8 +12,7 @@
 }
 .titleSt {
   margin: 1%;
-  margin-left: 70px;
-  margin-top: 2%;
+  margin-left: 270px;
   font-size: 4.5vh;
 }
 
@@ -28,7 +28,7 @@
   margin-top: 12px;
 }
 .footer-p2 {
-  margin-left: 20%;
+  margin-left: 38%;
   margin-top: 12px;
 }
 
@@ -38,9 +38,9 @@
 }
 .capgemini-logo {
   height: 100%;
-  margin-top: 0.3%;
+  margin-top: 0.2%;
 }
 .cyf-logo {
   height: 100%;
-  margin-top: 13px;
+  margin-top: 6px;
 }
