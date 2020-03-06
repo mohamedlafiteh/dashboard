@@ -31,7 +31,7 @@ class WinnerTable extends Component {
                         <td>{this.getBidderName(currentBidder, this.props.users)}</td>
                     </tr>
                 )
-            }).slice(counter * 7, 7 + counter * 7)
+            }).slice(counter * 5, 5 + counter * 5)
         });
     }
 
