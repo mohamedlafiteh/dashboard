@@ -16,7 +16,7 @@ const firebaseConfig = {
 
 
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig).auth().signInAnonymously();
 
 
 export default firebase;

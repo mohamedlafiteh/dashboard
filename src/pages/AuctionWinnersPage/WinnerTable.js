@@ -7,7 +7,7 @@ class WinnerTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ...this.state,
+            timerStarted: false,
             imageDictionary: {},
             tableData: []
         }
@@ -20,7 +20,10 @@ class WinnerTable extends Component {
     }
 
     updateTableData(counter) {
+        let numberOfSlices = Math.ceil(this.props.lots.length / 5);
+        let tableIndex = counter % numberOfSlices;
         this.setState({
+            timerStarted: true,
             tableData: this.props.lots.map((item, index) => {
                 const { id, lotName, currentBidder, image , currentBid} = item
                 return (
@@ -31,18 +34,22 @@ class WinnerTable extends Component {
                         <td>{this.getBidderName(currentBidder, this.props.users)}</td>
                     </tr>
                 )
-            }).slice(counter * 7, 7 + counter * 7)
+            }).slice(tableIndex * 5, 5 + tableIndex * 5)
         });
     }
 
     renderTableData() {
         let counter = 0;
-        let numberOfSlice = Math.ceil(this.props.lots.length / 7);
+
+        if (!this.state.timerStarted)
+        {
+            setInterval(() => {
+                counter++
+                this.updateTableData(counter)
+            }, 10000);
+        }
+
         this.updateTableData(counter)
-        setInterval(() => {
-            counter++
-            this.updateTableData(counter % numberOfSlice)
-        }, 10000);
     }
 
     getImageUrl = (id, image) => {
