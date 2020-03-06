@@ -37,7 +37,7 @@ class WinnerTable extends Component {
 
     renderTableData() {
         let counter = 0;
-        let numberOfSlice = Math.ceil(this.props.lots.length / 7);
+        let numberOfSlice = Math.ceil(this.props.lots.length / 5);
         this.updateTableData(counter)
         setInterval(() => {
             counter++
